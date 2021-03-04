@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+for i in {0..255}
+do
+	echo $i
+        ./a.out $1 $i 0
+        sleep .2
+done
+

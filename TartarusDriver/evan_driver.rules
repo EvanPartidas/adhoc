@@ -1,0 +1,4 @@
+ACTION=="add", ATTRS{idVendor}=="1532",ATTRS{idProduct}=="0201", SUBSYSTEM=="hid", DRIVER=="hid-generic", \
+RUN+="/bin/bash -c 'echo $kernel > /sys/bus/hid/drivers/hid-generic/unbind'", \
+RUN+="/bin/bash -c 'echo $kernel > /sys/bus/hid/drivers/Razer\ Tartarus\ Keypad\ Driver/bind'"
+

@@ -1,0 +1,1 @@
+cmd_/home/whytif/Documents/Drivers/TartarusDriver/driver.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds --build-id  -o /home/whytif/Documents/Drivers/TartarusDriver/driver.ko /home/whytif/Documents/Drivers/TartarusDriver/driver.o /home/whytif/Documents/Drivers/TartarusDriver/driver.mod.o

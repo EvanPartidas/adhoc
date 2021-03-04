@@ -1,0 +1,1 @@
+A treap is a combination of Binary Search Trees and Heaps. They are a probability data structure which provide an amortized O(log(N)) Query time the same as a regular Binary Search tree would. The treap allows for easy editing of the information stored on each node which makes any programming problem involving the ranking of data points very easy.
