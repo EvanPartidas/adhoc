@@ -3446,7 +3446,7 @@ input[type="button"].btn-block {
     color: #212529;
     text-align: left;
     list-style: none;
-    background-color: #fff;
+    background-color: #9f9f9f;
     background-clip: padding-box;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 0.25rem;
@@ -3620,7 +3620,7 @@ input[type="button"].btn-block {
     color: #212529;
     text-align: inherit;
     white-space: nowrap;
-    background-color: transparent;
+    background-color: #9f9f9f;
     border: 0;
 }
 
@@ -3628,7 +3628,7 @@ input[type="button"].btn-block {
 .dropdown-item:focus {
     color: #16181b;
     text-decoration: none;
-    background-color: #f8f9fa;
+    background-color: #7f7f7f;
 }
 
 .dropdown-item.active,
