@@ -1,3 +1,8 @@
 #pagecontainer {
     margin-top: 75px;
 }
+
+.section-header {
+    padding-top: 60px;
+    margin-top: -60px;
+}

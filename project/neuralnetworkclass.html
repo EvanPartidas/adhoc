@@ -1,17 +1,16 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Blog Template for Bootstrap</title>
-        <!-- Bootstrap core CSS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <!-- Custom styles for this template -->
-        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
         <link href="/custom.css" rel="stylesheet">
+        <script> 
+    $(function(){
+      $("#headerContent").load("/head.html"); 
+    });
+    </script>         
+        <div id="headerContent">
+</div>
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -43,165 +42,199 @@
 </form>
             </div>
         </nav>
-        <div class="container" id="pagecontainer">
-            <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-                <div class="col-md-6 px-0">
-                    <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
-                    <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what's most interesting in this post's contents.</p>
-                    <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-md-6">
-                    <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                        <div class="card-body d-flex flex-column align-items-start">
-                            <strong class="d-inline-block mb-2 text-primary">World</strong>
-                            <h3 class="mb-0"> <a class="text-dark" href="#">Featured post</a> </h3>
-                            <div class="mb-1 text-muted">Nov 12</div>
-                            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#">Continue reading</a>
-                        </div>
-                        <img class="card-img-right flex-auto d-none d-md-block" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1610ecb1e61%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1610ecb1e61%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.203125%22%20y%3D%22130.7%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                        <div class="card-body d-flex flex-column align-items-start">
-                            <strong class="d-inline-block mb-2 text-success">Design</strong>
-                            <h3 class="mb-0"> <a class="text-dark" href="#">Post title</a> </h3>
-                            <div class="mb-1 text-muted">Nov 11</div>
-                            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-                            <a href="#">Continue reading</a>
-                        </div>
-                        <img class="card-img-right flex-auto d-none d-md-block" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22250%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20250%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1610ecb1e61%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A13pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1610ecb1e61%22%3E%3Crect%20width%3D%22200%22%20height%3D%22250%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2256.203125%22%20y%3D%22130.7%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image cap">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <main role="main" class="container">
+        <main role="main" class="container" id="pagecontainer">
             <div class="row">
                 <div class="col-md-8 blog-main">
-                    <h3 class="pb-3 mb-4 font-italic border-bottom">
-            From the Firehose </h3>
                     <div class="blog-post">
-                        <h2 class="blog-post-title">Sample blog post</h2>
-                        <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
-                        <p>This blog post shows a few different types of content that's supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+                        <h2 class="blog-post-title">Neural Network Class</h2>
+                        <p class="blog-post-meta"><i>Project Created in February 2019</i></p>
+                        <p>All lines of code written in this project came from me. And maybe some small pieces from stackoverflow.&nbsp;This project is an attempt at machine learning in java.</p>
                         <hr>
-                        <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-                        <blockquote>
-                            <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        </blockquote>
-                        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                        <h2>Heading</h2>
-                        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                        <h3>Sub-heading</h3>
-                        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                        <pre><code>Example code block</code></pre>
-                        <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-                        <h3>Sub-heading</h3>
-                        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                        <ul>
-                            <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-                            <li>Donec id elit non mi porta gravida at eget metus.</li>
-                            <li>Nulla vitae elit libero, a pharetra augue.</li>
-                        </ul>
-                        <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-                        <ol>
-                            <li>Vestibulum id ligula porta felis euismod semper.</li>
-                            <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-                            <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-                        </ol>
-                        <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+                        <div id="thegoals">
+                            <h3 class="section-header">The Goals</h3>
+                            <p>I wanted to create a class from scratch that would simulate a neural network in order to understand on a deeper level how back propogation and other training algorithms functioned. The project goals were as follows:</p>
+                            <ul>
+                                <li>Relatively custom dimensions</li>
+                                <li>Methods to use the network</li>
+                                <li>Methods to train the network</li>
+                                <li>Ability to save the network</li>
+                                <li>Support for back propogation and "genetic" training algorithms</li>
+                            </ul>
+                        </div>
+                        <div id="howitworks">
+                            <h3 class="section-header">How It Works</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>The class is simple to use. When constructing a new <code>NeuralNetwork</code> you specify the number of neurons in the input layer, the number of hidden layers, the number of neurons in the hidden layer, and the number of output layers.</p>
+                            <p>For example, the following code will create a <code>NeuralNetwork</code> with 2 input neurons, 1 hidden layer, all hidden layers would have 3 hidden neurons, and 1 output neuron.</p>
+                            <pre class="border border-dark rounded bg-secondary"> <code>NeuralNetwork net = new NeuralNetwork(2,1,3,1);</code></pre>
+                            <p><i>Note: the dimensions of the hidden layers can be specified by an int array for more customizability.</i></p>
+                            <p>After you have your <code>NeuralNetwork</code> instantiated you can specify the inputs and get an output with the <code>feed()</code> method.</p>
+                            <pre class="border border-dark rounded bg-secondary"><code>double[] inputs = {1.0,1.0};
+double[] outputs = net.feed(inputs);
+//Only one output neuron
+System.out.printf("Output: %.4f\n", outputs[0]);</code></pre>
+                            <p>The output of this can look something like: </p>
+                            <pre class="border border-dark rounded bg-secondary"><code>Output: 0.3542</code></pre>
+                            <p>This is great, but unless we want an esoteric random number generator we need to train the network. For brevity, I will only go over using the built-in back-propagation.</p>
+                            <p>In order to train, we first need an array that holds the target values of the output neurons.</p>
+                            <pre class="border border-dark rounded bg-secondary"><code>double[] targets = {1.0};</code></pre>
+                            <p>We then pass that array into the <code>calcCost()</code> function as shown:</p>
+                            <pre class="border border-dark rounded bg-secondary"><code>net.calcCost(targets);</code></pre>
+                            <p>Nothing has actually happened yet, we need to tell the network to adjust it's weights according to a learning rate with the <code>learn()</code> function.</p>
+                            <pre class="border border-dark rounded bg-secondary"><code>net.learn(0.2);</code></pre>
+                        </div>
+                        <div id="testcode" class="">
+                            <h3 class="section-header">Test Code</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>The learning process must be repeated many times in order for the network to learn what outputs to yield for given inputs. For that, I will show a full program that teaches the network how to perform the XOR operation.</p>
+                            <pre class="border border-dark rounded bg-secondary"><code>package NeuralNetwork;
+/**
+ * Code which tests the &lt;code&gt;NeuralNetwork&lt;/code&gt;.
+ * It teaches the &lt;code&gt;NeuralNetwork&lt;/code&gt; how to
+ * perform the XOR operation.
+ * @author Evan Partidas
+ *
+ */
+public class NeuralNetworkDriver {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		NeuralNetwork net = new NeuralNetwork(2,1,3,1);
+		double[][] inputs =
+			{ 
+				{1.0,1.0},
+				{0,1.0},
+				{1.0,0},
+				{0,0}
+			};
+		double[][] target =
+			{ 
+				{0},
+				{1},
+				{1},
+				{0}
+			};
+		for(int i=0;i&lt;=200000;i++){
+			for(int j=0;j&lt;4;j++){
+				net.feed(inputs[j]);
+				net.calcCost(target[j]);
+				net.learn(0.2);
+			}
+			if(i%8000==0){
+				System.out.print("Error: ");
+				System.out.printf("%.12f \n",net.getError());
+			}
+			//Clear the error
+			net.getError();
+		}
+		for(int j=0;j&lt;4;j++){
+			double[] result = net.feed(inputs[j]);
+			for(double d:inputs[j]){
+				System.out.print(d+" ");
+			}
+			System.out.print("=");
+			for(double d:result){
+				System.out.printf("%.0f ",d);
+				System.out.printf(" %.5f \n",d);
+			}
+		}			
+	}
+}</code></pre>
+                        </div>
+                        <div id="theresults">
+                            <h3 class="section-header">The Results</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>Here is the output of the code from the previous section:</p>
+                            <pre class="border border-dark rounded bg-secondary"><code>Error: 1.014875502988 
+Error: 1.004292824064 
+Error: 1.002261767357 
+Error: 0.997474268213 
+Error: 0.985190951483 
+Error: 0.895985322637 
+Error: 0.473909484511 
+Error: 0.318087756888 
+Error: 0.285337725086 
+Error: 0.272867228348 
+Error: 0.266365818334 
+Error: 0.262274875550 
+Error: 0.259246936556 
+Error: 0.256376909589 
+Error: 0.250385037883 
+Error: 0.039134013911 
+Error: 0.008678194293 
+Error: 0.005036784148 
+Error: 0.003684144740 
+Error: 0.002964742038 
+Error: 0.002508633338 
+Error: 0.002188276473 
+Error: 0.001947972870 
+Error: 0.001759400334 
+Error: 0.001606529728 
+Error: 0.001479538593 
+1.0 1.0 =0  0.01168 
+0.0 1.0 =1  0.97895 
+1.0 0.0 =1  0.97828 
+0.0 0.0 =0  0.02065 </code></pre>
+                            <p>As can be seen, the network indeed learned how to perform an XOR. The outputs get closer and closer to the expected output we want. This can also be shown as the error goes down.</p>
+                            <p>The project was a huge success. After many days of designing, learning, and coding I now have my own custom-made NeuralNetwork class.</p>
+                        </div>
+                        <div id="thecode">
+                            <h3 class="section-header">The Code</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>The source code for the entire project can be found <a href="https://github.com/EvanPartidas/adhoc/tree/main/project/neuralnetworkclass/">here</a></p>
+                            <p>The code is divided into 4 Classes:</p>
+                            <ol>
+                                <li>
+                                    <code>NeuralNetwork</code> - Main class that houses the data and methods
+                                </li>
+                                <li>
+                                    <code>Neuron</code> - Necessary class that helps with Forward and Back Propogation
+                                </li>
+                                <li>
+                                    <code>NeuralCache</code> - Utility class which stores all the matrix data within a Neural Network
+                                </li>
+                                <li>
+                                    <code>NeuralModel</code> - Utility class which stores a possible structure of the Neural Network
+                                </li>
+                            </ol>
+                            <p><i>Note: the fourth </i><code>NeuralModel</code><i> class is not necessary for the stated goals. However, I found the class to be handy</i></p>
+                            <p>You can learn a lot more about the source code by visiting it with the link given above.</p>
+                        </div>
                     </div>
-                    <!-- /.blog-post -->
-                    <div class="blog-post">
-                        <h2 class="blog-post-title">Another blog post</h2>
-                        <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
-                        <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-                        <blockquote>
-                            <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        </blockquote>
-                        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-                    </div>
-                    <!-- /.blog-post -->
-                    <div class="blog-post">
-                        <h2 class="blog-post-title">New feature</h2>
-                        <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
-                        <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                        <ul>
-                            <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-                            <li>Donec id elit non mi porta gravida at eget metus.</li>
-                            <li>Nulla vitae elit libero, a pharetra augue.</li>
-                        </ul>
-                        <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                        <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-                    </div>
-                    <!-- /.blog-post -->
-                    <nav class="blog-pagination">
-                        <a class="btn btn-outline-primary" href="#">Older</a>
-                        <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-                    </nav>
                 </div>
                 <!-- /.blog-main -->
                 <aside class="col-md-4 blog-sidebar">
                     <div class="p-3 mb-3 bg-light rounded">
                         <h4 class="font-italic">About</h4>
-                        <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+                        <p class="mb-0">In this project I built a regular feed-forward Neural Network class in java. It has methods for supervised and unsupervised learning. The entire project was made entirely from scratch in java.</p>
                     </div>
                     <div class="p-3">
-                        <h4 class="font-italic">Archives</h4>
+                        <h4 class="font-italic">Overview</h4>
                         <ol class="list-unstyled mb-0">
                             <li>
-                                <a href="#">March 2014</a>
+                                <a href="#thegoals">The Goals</a>
                             </li>
                             <li>
-                                <a href="#">February 2014</a>
+                                <a href="#howitworks">How It Works</a>
                             </li>
                             <li>
-                                <a href="#">January 2014</a>
+                                <a href="#testcode">Test Code</a>
                             </li>
                             <li>
-                                <a href="#">December 2013</a>
+                                <a href="#theresults">The Results</a>
                             </li>
                             <li>
-                                <a href="#">November 2013</a>
-                            </li>
-                            <li>
-                                <a href="#">October 2013</a>
-                            </li>
-                            <li>
-                                <a href="#">September 2013</a>
-                            </li>
-                            <li>
-                                <a href="#">August 2013</a>
-                            </li>
-                            <li>
-                                <a href="#">July 2013</a>
-                            </li>
-                            <li>
-                                <a href="#">June 2013</a>
-                            </li>
-                            <li>
-                                <a href="#">May 2013</a>
-                            </li>
-                            <li>
-                                <a href="#">April 2013</a>
+                                <a href="#thecode">The Code</a>
                             </li>
                         </ol>
                     </div>
                     <div class="p-3">
-                        <h4 class="font-italic">Elsewhere</h4>
+                        <h4 class="font-italic">Social Media</h4>
                         <ol class="list-unstyled">
                             <li>
-                                <a href="#">GitHub</a>
+                                <a href="https://github.com/evanpartidas">GitHub</a>
                             </li>
                             <li>
-                                <a href="#">Twitter</a>
-                            </li>
-                            <li>
-                                <a href="#">Facebook</a>
+                                <a href="https://www.linkedin.com/in/evan-partidas-2029aa214/">LinkedIn</a>
                             </li>
                         </ol>
                     </div>
@@ -212,14 +245,12 @@
         </main>
         <!-- /.container -->
         <footer class="blog-footer">
-            <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            <p> <a href="#">Back to top</a> </p>
-        </footer>
+</footer>
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="../assets/js/jquery.min.js"></script>
-        <script src="../assets/js/popper.js"></script>
-        <script src="../bootstrap/js/bootstrap.min.js"></script>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/popper.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
     </body>
 </html>
