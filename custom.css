@@ -6,3 +6,7 @@
     padding-top: 60px;
     margin-top: -60px;
 }
+
+.cover-page-block {
+    background-color: rgba(0,0,0,0.5);
+}
