@@ -9,4 +9,7 @@
 
 .cover-page-block {
     background-color: rgba(0,0,0,0.5);
+    padding: 30px 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
