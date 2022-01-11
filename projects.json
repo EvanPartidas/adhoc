@@ -1,0 +1,17 @@
+{
+"projects":[
+
+{"id":"neuralnetworkclass",
+"title":"Neural Network Class",
+"date":"February 2019",
+"about":"In this project I built a regular feed-forward Neural Network class in java. It has methods for supervised and unsupervised learning. The entire project was made entirely from scratch in java.",
+"url":"/project/neuralnetworkclass.html",
+"filters":
+{
+	"languages":["java"],
+	"tags":["MachineLearning","NeuralNetworks"]
+}
+}
+
+]
+}

@@ -1,5 +1,5 @@
 body {
-    background-image: url('/images/blurcode.jpg');
+    background-image: url('images/blurcode.jpg');
     background-color: #222;
     color: #fff;
 }
@@ -15,8 +15,19 @@ body {
     margin-bottom: 6rem;
 }
 
-.blog-post {
+.blogpost-listitem{
+    padding: 2rem;
+    color: #fff;
+    background-color: #222;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
+.blogpost-listitem:hover{
+    color: #eee;
+
+}
+
 
 /* Header */
 /* Padding for spacing */
