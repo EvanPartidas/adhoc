@@ -13,3 +13,10 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
+.headbar {
+    position: fixed;
+    top: 0;
+    width: 60%;
+    left: 20%;
+}

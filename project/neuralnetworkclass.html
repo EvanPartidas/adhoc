@@ -1,26 +1,22 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
         <link href="/custom.css" rel="stylesheet">
-        <script> 
-    $(function(){
-      $("#headerContent").load("/head.html"); 
-    });
-    </script>         
-        <div id="headerContent">
-</div>
+        <link href="project_blogpost.css" rel="stylesheet"> 
+        <link href="/highlight/styles/github-dark.min.css" rel="stylesheet">
     </head>
-    <body>        
-        <main role="main" class="container" id="pagecontainer">
+    <body> 
+        <main role="main" class="container" id="pagecontainer" style="margin-bottom: 10rem">
+            <div class="project-headbar clearfix" id="headerContent">
+</div>
             <div class="row">
                 <div class="col-md-8 blog-main">
                     <div class="blog-post">
                         <h2 class="blog-post-title">Neural Network Class</h2>
                         <p class="blog-post-meta"><i>Project Created in February 2019</i></p>
-                        <p>All lines of code written in this project came from me. And maybe some small pieces from stackoverflow.&nbsp;This project is an attempt at machine learning in java.</p>
-                        <hr>
+                        <p>All lines of code written in this project came from me... and maybe some small pieces from stackoverflow.&nbsp;This project is an attempt at machine learning in java.</p>
+                        <hr class="bg-secondary">
                         <div id="thegoals">
                             <h3 class="section-header">The Goals</h3>
                             <p>I wanted to create a class from scratch that would simulate a neural network in order to understand on a deeper level how back propogation and other training algorithms functioned. The project goals were as follows:</p>
@@ -37,7 +33,7 @@
                             <p class="mt-n2"> <a href="#">Back to top</a> </p>
                             <p>The class is simple to use. When constructing a new <code>NeuralNetwork</code> you specify the number of neurons in the input layer, the number of hidden layers, the number of neurons in the hidden layer, and the number of output layers.</p>
                             <p>For example, the following code will create a <code>NeuralNetwork</code> with 2 input neurons, 1 hidden layer, all hidden layers would have 3 hidden neurons, and 1 output neuron.</p>
-                            <pre class="border border-dark rounded bg-secondary"> <code>NeuralNetwork net = new NeuralNetwork(2,1,3,1);</code></pre>
+                            <pre> <code>NeuralNetwork net = new NeuralNetwork(2,1,3,1);</code></pre>
                             <p><i>Note: the dimensions of the hidden layers can be specified by an int array for more customizability.</i></p>
                             <p>After you have your <code>NeuralNetwork</code> instantiated you can specify the inputs and get an output with the <code>feed()</code> method.</p>
                             <pre class="border border-dark rounded bg-secondary"><code>double[] inputs = {1.0,1.0};
@@ -174,7 +170,7 @@ Error: 0.001479538593
                 </div>
                 <!-- /.blog-main -->
                 <aside class="col-md-4 blog-sidebar">
-                    <div class="p-3 mb-3 bg-light rounded">
+                    <div class="p-3 mb-3 rounded bg-secondary">
                         <h4 class="font-italic">About</h4>
                         <p class="mb-0">In this project I built a regular feed-forward Neural Network class in java. It has methods for supervised and unsupervised learning. The entire project was made entirely from scratch in java.</p>
                     </div>
@@ -220,8 +216,17 @@ Error: 0.001479538593
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="/assets/js/jquery.min.js"></script>
-        <script src="/assets/js/popper.js"></script>
-        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/highlight/highlight.min.js"></script>
+        <script src="/js/jquery-3.6.0.min.js"></script>
+        <script src="/custom.js"></script>
+        <script> 
+    $(async function(){
+      $("#headerContent").load("/headbar.html"); 
+        waitForEl("#ProjectsNavItem",function(){
+            $("#ProjectsNavItem").addClass("active");
+        });
+    });
+           hljs.initHighlightingOnLoad();
+    </script>         
     </body>
 </html>
