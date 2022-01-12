@@ -79,7 +79,6 @@ async function updateResults() {
 	let response = getResponse().projects;
 
 	//Filter the response
-	console.log(response);
 
 	//Attributes
 	for (const [key, field] of Object.entries(filters)) {
@@ -101,7 +100,7 @@ async function updateResults() {
 					if(filtername == key){
 						for(const value of values){
 							if(tempset.has(value)){
-								has = true;
+								hasattributes = true;
 								break;
 							}
 						}
@@ -117,7 +116,7 @@ async function updateResults() {
 			console.error("Arr is null for field: " + field);
 		}
 	}
-	console.log(response);
+
 	page_count = Math.trunc((response.length + per_page - 1) / per_page);
 	let itemList = itemTemplate.parentElement.querySelectorAll(':scope > :not(#ItemTemplate, .page-btn)');
 	for (let i = 0; i < itemList.length; i++) {
@@ -146,7 +145,7 @@ async function applyFilters() {
 async function changePage(delta) {
 	current_page += delta;
 	await updateResults();
-	console.log(page_count);
+
 	if (current_page == 1) {
 		for (button of document.querySelectorAll("a[name='previouspage']")) {
 			button.classList.add("disabled");

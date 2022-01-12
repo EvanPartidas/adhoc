@@ -15,7 +15,12 @@ body {
     margin-bottom: 6rem;
 }
 
-.blog-post {
+.blog-img {
+    max-width: 100%;
+    border-style: solid;
+    border-radius: 1rem;
+    border-color: #222;
+    margin-bottom: 1rem;
 }
 
 /* Header */

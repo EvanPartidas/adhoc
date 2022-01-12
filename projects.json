@@ -11,6 +11,19 @@
 	"languages":["java"],
 	"tags":["MachineLearning","NeuralNetworks"]
 }
+},
+
+{"id":"vjudgecontestscheduler",
+"title":"Vjudge Contest Scheduler",
+"date":"January 2021",
+"blogdate":"01/11/2022",
+"about":"The Vjudge Contest Scheduler is a website automation program written in node.js. It is extremely fast as it utilizes GET/POST requests to login to vjudge and set up a contest as it starts.",
+"url":"/project/vjudgecontestscheduler.html",
+"filters":
+{
+	"languages":["nodejs"],
+	"tags":["GETPOST","Webscrapper"]
+}
 }
 
 ]
