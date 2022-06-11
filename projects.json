@@ -12,8 +12,7 @@
 	"tags":["MachineLearning","NeuralNetworks"]
 }
 },
-
-{"id":"vjudgecontestscheduler",
+    {"id":"vjudgecontestscheduler",
 "title":"Vjudge Contest Scheduler",
 "date":"January 2021",
 "blogdate":"01/11/2022",
@@ -23,6 +22,34 @@
 {
 	"languages":["nodejs"],
 	"tags":["GETPOST","Webscrapper"]
+}
+},
+    
+
+{"id":"smarthomeoverview",
+"title":"Smart Home System Overview",
+"date":"May 2022",
+"blogdate":"06/11/2022",
+"about":"This is a Smart Home system I am writing for my house. Throughout multiple posts is the documentation of the lengthy process of automating random things around my house.",
+"url":"/project/smarthomeoverview.html",
+"filters":
+{
+	"languages":["nodejs"],
+	"tags":["SmartHome","RaspberryPi"]
+}
+},
+    
+
+{"id":"smarthomesprinkler",
+"title":"Hacking my Sprinkler System",
+"date":"May 2022",
+"blogdate":"06/11/2022",
+"about":"This is part of my Smart Home system I am writing for my house. In this project I create a smart sprinkler controller from a raspberry pi.",
+"url":"/project/smarthomesprinkler.html",
+"filters":
+{
+	"languages":["nodejs","html"],
+	"tags":["SmartHome","RaspberryPi"]
 }
 }
 

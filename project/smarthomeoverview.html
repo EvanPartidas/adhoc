@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="/custom.css" rel="stylesheet">
+        <link href="project_blogpost.css" rel="stylesheet"> 
+        <link href="/highlight/styles/github-dark.min.css" rel="stylesheet">
+    </head>
+    <body> 
+        <main role="main" class="container" id="pagecontainer" style="margin-bottom: 10rem">
+            <div class="project-headbar clearfix" id="headerContent">
+</div>
+            <div class="row">
+                <div class="col-md-8 blog-main">
+                    <div class="blog-post">
+                        <h2 class="blog-post-title">Smart Home System Overview</h2>
+                        <p class="blog-post-meta"><i>Project Created in May 2022</i></p>
+                        <p>All lines of code written in this project came from me... and maybe some small pieces from stackoverflow.&nbsp;</p>
+                        <hr class="bg-secondary">
+                        <div id="preamble">
+                            <h3 class="section-header">Introduction</h3>
+                            <p>This is the first post of many covering the creation of a home system from scratch. The idea of this project came to me when my garage remote broke and I was left with no way to open and close the garage.</p>
+                        </div>
+                        <div id="thegoals">
+                            <h3 class="section-header">The Goals</h3>
+                            <p>I have many goals for this project, but for the short term I am focused on creating webservers in node.js and User Interfaces in react.js along with a little bit of electrical engineering when hooking up raspberry pis to various appliances around the house.</p>
+                            <p>Note: The choice of programming language is due to how versatile yet simple nodejs is. The vast libraries compared to ease of install with npm rivals python's pip. Along with an overall much easier to read coding syntax combined with much faster speeds nodejs is quickly becoming my favorite project language. Not to mention, the language was designed to deal with http traffic.</p>
+                        </div>
+                        <div id="firststep">
+                            <h3 class="section-header">First Step</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>The first step, and only step covered in this post will be the creation of the webserver. For the webserver, I installed Ubuntu Server on a Raspberry Pi Model 3 B.</p>
+                            <p>After setting up ssh, I installed Nginx. I wanted to use Nginx to server all static files and then have a nodejs server running that will handle the dynamic requests.</p>
+                            <p>Here is my nginx website configuration file...</p>
+                            <img class="blog-img" src="/project/smarthomeoverview/nginxconf.png">
+                            <p>So, a quick rundown:</p>
+                            <ul>
+                                <li>Nginx will listen on port 80 and this website will be the default webpage if no domain is specified.</li>
+                                <li>"root" specifies where all the static html files are.</li>
+                                <li>"servername" aka domain name doesn't matter I just left it as it was.</li>
+                                <li>Now the location block grabs all links that start with "/" (so it grabs all links) and then tries to find a static file matching the request, if nothing is found it send it to the proxy block.</li>
+                                <li>The proxy block then sets some headers and redirects the request to a server running on the same machine on port 3000.</li>
+                            </ul>
+                            <p>Here is the structure of all the website code/files.</p>
+                            <img class="blog-img" src="/project/smarthomeoverview/files.png">
+                            <p>You may notice the ftp-deploy json file, that is because I have already setup the webserver with ftp. I've added a github deploy action which will automatically update all the code on the webserver. I have a test webserver setup on my personal machine that I use for testing.</p>
+                            <p>Let's take a look  at the current webpage.</p>
+                            <img class="blog-img" src="/project/smarthomeoverview/websitefirst.png">
+                            <p>Not very interesting, but that's because I've only taken the template code for reactjs.</p>
+                            <p>The like button works, though!</p>
+                            <img class="blog-img" src="/project/smarthomeoverview/websitesecond.png">
+                        </div>
+                        <div id="theconclusion">
+                            <h3 class="section-header">The Conclusion</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>I know there is nothing very interesting about this post, but it is only meant to introduce the project, all the more interesting stuff is in the next posts.</p>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.blog-main -->
+                <aside class="col-md-4 blog-sidebar">
+                    <div class="p-3 mb-3 rounded bg-secondary">
+                        <h4 class="font-italic">About</h4>
+                        <p class="mb-0">This is a Smart Home system I am writing for my house. Throughout multiple posts is the documentation of the lengthy process of automating random things around my house.</p>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-italic">Overview</h4>
+                        <ol class="list-unstyled mb-0">
+                            <li>
+                                <a href="#preamble">Introduction</a>
+                            </li>
+                            <li>
+                                <a href="#thegoals">The Goals</a>
+                            </li>
+                            <li>
+                                <a href="#firststep">The First Step</a>
+                            </li>
+                            <li>
+                                <a href="#theconclusion">The Conclusion</a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-italic">Social Media</h4>
+                        <ol class="list-unstyled">
+                            <li>
+                                <a href="https://github.com/evanpartidas">GitHub</a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/evan-partidas-2029aa214/">LinkedIn</a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-italic">Related Posts</h4>
+                        <ol class="list-unstyled">
+                            <li>
+                                <a href="/project/smarthomesprinkler.html">Hacking my Sprinkler System</a>
+                            </li>
+                        </ol>
+                    </div>
+                </aside>
+                <!-- /.blog-sidebar -->
+            </div>
+            <!-- /.row -->
+        </main>
+        <!-- /.container -->
+        <footer class="blog-footer">
+</footer>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/highlight/highlight.min.js"></script>
+        <script src="/js/jquery-3.6.0.min.js"></script>
+        <script src="/custom.js"></script>
+        <script> 
+    $(async function(){
+      $("#headerContent").load("/headbar.html"); 
+        waitForEl("#ProjectsNavItem",function(){
+            $("#ProjectsNavItem").addClass("active");
+        });
+    });
+           hljs.initHighlightingOnLoad();
+    </script>         
+    </body>
+</html>

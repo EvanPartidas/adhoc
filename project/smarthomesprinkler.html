@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="/custom.css" rel="stylesheet">
+        <link href="project_blogpost.css" rel="stylesheet"> 
+        <link href="/highlight/styles/github-dark.min.css" rel="stylesheet">
+    </head>
+    <body> 
+        <main role="main" class="container" id="pagecontainer" style="margin-bottom: 10rem">
+            <div class="project-headbar clearfix" id="headerContent">
+</div>
+            <div class="row">
+                <div class="col-md-8 blog-main">
+                    <div class="blog-post">
+                        <h2 class="blog-post-title">Hacking my Sprinkler System</h2>
+                        <p class="blog-post-meta"><i>Project Created in May 2022</i></p>
+                        <p>All lines of code written in this project came from me... and maybe some small pieces from stackoverflow.&nbsp;</p>
+                        <hr class="bg-secondary">
+                        <div id="preamble">
+                            <h3 class="section-header">Introduction</h3>
+                            <p>Due to the sprinkler controller being the original one installed in the house it is a bit out of date. The biggest problem is that all sprinkler programs are deleted if there is a power outage of more than a few minutes. Which means I have to completely reprogram the controller every time there is a heavy storm or the power company messes up.</p>
+                        </div>
+                        <div id="thegoals">
+                            <h3 class="section-header">The Goals</h3>
+                            <p>I want to hack into the sprinkler system with the raspberry pi so that I don't have to reprogram it all the time. I can then create any UI I want on any platform to trigger different sprinkler zones.</p>
+                        </div>
+                        <div id="research">
+                            <h3 class="section-header">Research</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>I have been programming for a very long time and I've picked up a thing here and there from my Theoretical Electricity Physics classes. But I have no idea how a sprinkler system works. So the first thing to do was to study the system in place.</p>
+                            <p>So first, I said hello to the sprinkler controller.</p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/originalsprinklercontroller.jpeg">
+                            <p>Next, I opened it up to expose the electronics</p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/originalsprinklercontrolleropen.jpeg">
+                            <p>I was greeted by a bunch of dust, and what looked to be wires that might control each sprinkler zone. This was very very good because that meant I should be able to get rid the original system completely and just send signals to those wires.</p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/originalwires.jpeg">
+                            <p>Upon closer inspection, indeed each wire is labeled with a zone, we have 8 zones and the controller supports 12. Also, we apparently have a rain sensor, could be useful later on.</p>
+                            <p>Now I know that each wire controls each zone. I need to figure out what signal needs to be sent to each wire to activate that zone.</p>
+                            <p>Off to google! I searched up "sprinkler controller wires" and went to videos.</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/sQ7WrI-xTsA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <p>Now I know for sure the wires are directly connected to sprinkler valve solenoids, which control water flow to each zone.</p>
+                            <p>However, it seems that these solenoids are powered by the controller, which means I'll need to come up with my own power supply if I intend to use them with the raspberry pi. So off to google again to research what power they take.</p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/solenoidvoltagesearch.png">
+                            <p>24VAC seems to be the power source required, but I also verified it by using my multimeter on the wires to test them. Around 26VAC was what I read. So, a 24VAC power supply should do just fine.</p>
+                            <p>Now I'll also need new wires to connect everything, a relay board for the raspberry pi, and a way to connect wires.</p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/amazonorder.png">
+                            <p>I googled how to connect a bunch of different wires to a ground output and I found the terminal block was a good way to create a "daisy chain" that will connect everything.</p>
+                            <p>I also bought a spool of wire from home depot along with some push connectors.</p>
+                        </div>
+                        <div id="daisychain">
+                            <h3 class="section-header">Daisy Chaining</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>Now that I have all the materials, I just need to wire, starting with a basic daisy chain.</p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/daisychain.jpeg">
+                            <p>The wire I bought was pretty stiff, so I had to get pliers to bend it around each of these terminals. Stripping it was also quite a challenge because of a plastic insulation around the rubber insulation but I had a friend there helping me.</p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/daisychainfinished.jpeg">
+                        </div>
+                        <div id="boxedits">
+                            <h3 class="section-header">Making a case</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>
+        Next I tried to put the raspberry pi along with the relay board inside the old sprinkler controller case. </p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/pinofit.jpeg">
+                            <p>
+        Due to a screw mount it didn't fit, so I just cut out the screw mount. </p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/cutscrewmount.jpeg">
+                            <p>
+        I then needed to dremmel a hole for the power chord as it didn't fit. </p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/dremmel.jpeg">
+                        </div>
+                        <div id="assemble">
+                            <h3 class="section-header">Assembling</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>
+        Now I can start working on assembling the final product. I started to connect the wires to each of the common terminals on each relay.</p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/wiringthechain.jpeg">
+                            <p>Then I put the box on the wall and connected each sprinkler wire to each of the Normally Open terminals on the raspberry pi relay shield. I used some push connectors to extend some wires because the sprinkler wires weren't long enough.</p>
+                            <img class="blog-img" src="/project/smarthomesprinkler/finishedwiring.jpeg">
+                            <p>
+        Ta-da! I said my experience with electronics was mostly theoretical. This may be ugly but everything is connected! </p>
+                        </div>
+                        <div id="programming">
+                            <h3 class="section-header">Programming</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>The raspberry pi is setup with Ubuntu Server and I'll be using node.js to create a webserver that just accepts post requests.</p>
+                            <p>
+        I found a nodejs library super quickly that made working with GPIO pins super easy. So I then wrote the following function to simply run a zone. </p>
+                            <pre><code>var zones = [new Gpio(5,'out'),new Gpio(6,'out'),new Gpio(13,'out'),new Gpio(16,'out'),new Gpio(19,'out'),new Gpio(20,'out'),new Gpio(21,'out'),new Gpio(26,'out')];
+for(let ind = 0;ind&lt;8;ind++){
+	zones[ind].writeSync(0);
+}
+async function runZone(index,seconds){
+	for(let ind=0;ind&lt;8;ind++){
+		if(zones[ind].readSync()==1) return;
+	}
+	console.log("Turning on Sprinkler: ",index);
+	zones[index].writeSync(1);
+	console.log(`Waiting ${seconds} seconds...`);
+	await sleep(seconds*1000);
+	console.log("Turning off Sprinkler: ",index);
+	zones[index].writeSync(0);
+}
+function sleep(ms) {
+  return new Promise((resolve) =&gt; {
+    setTimeout(resolve, ms);
+  });
+}</code></pre>
+                            <p>That handles the hardware logic for running a sprinkler zone for a given time.</p>
+                            <p>
+    Now I just needed a webserver that listens for requests to turn on the sprinklers. Simple enough.</p>
+                            <pre><code>const server = http.createServer((req, res) =&gt; {
+  console.log(&quot;Request was made: &quot; + req.url);
+  console.log(&quot;HEADERS: &quot; + req.headers);
+  const urlPath = req.url;
+  if(urlPath === &quot;/setsprinkler&quot;){
+    if(req.method === &quot;POST&quot;){
+    req.on(&quot;data&quot;, (data) =&gt; {
+      let parsedData = parseData(data.toString());
+      console.log(parsedData);
+      let zone = parseInt(parsedData[&quot;zone&quot;]);
+      let value = parseInt(parsedData[&quot;value&quot;]);
+      console.log(`Zone: ${zone} value: ${value}`);
+      if(value==1){
+	let seconds = parseInt(parsedData[&quot;seconds&quot;]);
+	runZone(zone-1,seconds);
+      }else zones[zone-1].writeSync(0);
+    });
+    res.end(&quot;Query Processed.&quot;);
+    }
+    else{
+	res.end(&quot;No.&quot;);
+    }
+  }
+  else {
+    res.writeHead(200, {&quot;Content-Type&quot;: &quot;text/html&quot;});
+    res.end(&quot;404. Aww :(&quot;);
+  }
+});</code></pre>
+                            <p><code>parseData</code> is a function that I either found on stack overflow or github copilot wrote for me. It just takes the data and converts it to a json object I can use.</p>
+                            <p>
+I then created a post link on <a href="/project/smarthomeover.html">my main webserver</a>. That would just forward the request to the sprinkler controller pi. </p>
+                            <pre><code>if(urlPath === &quot;/setsprinkler&quot;){
+    if(req.method === &quot;POST&quot;){
+      req.on(&quot;data&quot;, (data) =&gt; {
+        console.log(&quot;POST DATA: &quot;+data);
+        let isLoggedIn = false;
+        //Check if user is already logged in
+        req.rawHeaders.forEach((header, index) =&gt; {
+          if(header === &quot;csrf-token&quot;){
+            const csrf_token = req.rawHeaders[index + 1];
+            if(csrf_tokens[csrf_token] != null){
+              isLoggedIn = true;
+            }
+          }
+        });
+        console.log(&quot;isLoggedIn: &quot;+isLoggedIn);
+        if(isLoggedIn||true){
+          //Forward request to sprinkler at sprinklerip
+          const options = {
+            host: sprinklerIp,
+            hostname: sprinklerIp,
+            port: 80,
+            path: &quot;/setsprinkler&quot;,
+            method: &quot;POST&quot;,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'Content-Length': data.length
+            },
+          };
+          let sprinklerRequest = http.request(options, (res) =&gt; {
+            console.log(`STATUS: ${res.statusCode}`);
+            console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+            res.setEncoding('utf8');
+            res.on('data', (chunk) =&gt; {
+                console.log(`BODY: ${chunk}`);
+            }
+            );
+          });
+          sprinklerRequest.write(data); 
+        }
+      });
+    }
+}</code></pre>
+                            <p>You can see I have an account system but it's being bypassed because the system is not yet done.</p>
+                            <p>Final step was to create a webpage with a form to submit post requests.</p>
+                            <pre><code>&lt;html&gt;
+	&lt;head&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;index.css&quot;&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+        &lt;!---Create a form that takes a 'Sprinkler Zone' number from 1 to 8 and an 'value' that is 0 or 1 and submits them to '/setsprinkler'--&gt;
+        &lt;form action=&quot;/setsprinkler&quot; method=&quot;POST&quot;&gt;
+            &lt;label for=&quot;zone&quot;&gt;Zone:&lt;/label&gt;
+            &lt;input type=&quot;number&quot; name=&quot;zone&quot; min=&quot;1&quot; max=&quot;8&quot; required&gt;
+            &lt;label for=&quot;seconds&quot;&gt;Seconds:&lt;/label&gt;
+            &lt;input type=&quot;number&quot; name=&quot;seconds&quot; min=&quot;0&quot; max=&quot;999&quot; required&gt;
+            &lt;label for=&quot;value&quot;&gt;Value:&lt;/label&gt;
+            &lt;input type=&quot;number&quot; name=&quot;value&quot; min=&quot;0&quot; max=&quot;1&quot; required&gt;
+            &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+        &lt;/form&gt; 
+		&lt;div id=&quot;footer&quot; style=&quot;height: 200rem&quot;&gt;&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                            <p>
+        I do have google copilot and use it whenever there is a simple task, I did not have to edit the final code much. </p>
+                        </div>
+                        <div id="demo">
+                            <h3 class="section-header">A Demonstration</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>
+        Finally, here is the first time I tested out the sprinkler system. I have since added the time option.</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/ejRyURJYZgs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div id="theconclusion">
+                            <h3 class="section-header">The Conclusion</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>This was a very fun project as I got way out of my comfort zone by diving into electronics. This sprinkler system is not done yet as the UI is quite horrible. So in the future I will most likely post an update on a new, user-friendly UI made with react.</p>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.blog-main -->
+                <aside class="col-md-4 blog-sidebar">
+                    <div class="p-3 mb-3 rounded bg-secondary">
+                        <h4 class="font-italic">About</h4>
+                        <p class="mb-0">This is part of my Smart Home system I am writing for my house. In this project I create a smart sprinkler controller from a raspberry pi.</p>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-italic">Overview</h4>
+                        <ol class="list-unstyled mb-0">
+                            <li>
+                                <a href="#preamble">Introduction</a>
+                            </li>
+                            <li>
+                                <a href="#thegoals">The Goals</a>
+                            </li>
+                            <li>
+                                <a href="#research">Research</a>
+                            </li>
+                            <li>
+                                <a href="#daisychain">Daisy Chaining</a>
+                            </li>
+                            <li>
+                                <a href="#boxedits">Making a Case</a>
+                            </li>
+                            <li>
+                                <a href="#assemble">Assembling</a>
+                            </li>
+                            <li>
+                                <a href="#programming">Programming</a>
+                            </li>
+                            <li>
+                                <a href="#demo">A Demonstration</a>
+                            </li>
+                            <li>
+                                <a href="#theconclusion">The Conclusion</a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-italic">Social Media</h4>
+                        <ol class="list-unstyled">
+                            <li>
+                                <a href="https://github.com/evanpartidas">GitHub</a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/evan-partidas-2029aa214/">LinkedIn</a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-italic">Related Posts</h4>
+                        <ol class="list-unstyled">
+                            <li>
+                                <a href="/project/smarthomeoverview.html">Smart Home System Overview</a>
+                            </li>
+                        </ol>
+                    </div>
+                </aside>
+                <!-- /.blog-sidebar -->
+            </div>
+            <!-- /.row -->
+        </main>
+        <!-- /.container -->
+        <footer class="blog-footer">
+</footer>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/highlight/highlight.min.js"></script>
+        <script src="/js/jquery-3.6.0.min.js"></script>
+        <script src="/custom.js"></script>
+        <script> 
+    $(async function(){
+      $("#headerContent").load("/headbar.html"); 
+        waitForEl("#ProjectsNavItem",function(){
+            $("#ProjectsNavItem").addClass("active");
+        });
+    });
+           hljs.initHighlightingOnLoad();
+    </script>         
+    </body>
+</html>
