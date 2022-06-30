@@ -10,7 +10,7 @@
     <body> 
         <main role="main" class="container" id="pagecontainer" style="margin-bottom: 10rem;">
             <div class="project-headbar clearfix" id="headerContent">
-                <div id="react-contet">
+                <div id="react-content">
 </div>
             </div>
             <!-- /.row -->
@@ -59,6 +59,10 @@ auth.onAuthStateChanged((user)=>{
 });
   //const analytics = getAnalytics(app);
 </script>
+<script type="text/javascript" src="js/react/react.development.js"></script>
+<script type="text/javascript" src="js/react/react-dom.development.js"></script>
+<script type="text/javascript" src="js/react/babel.min.js"></script>	         
+<script type="text/babel" src="editprojects.js"></script>
         <script> 
     $(async function(){
       $("#headerContent").load("/headbar.html"); 
