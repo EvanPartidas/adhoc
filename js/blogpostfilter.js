@@ -23,16 +23,13 @@ var per_page = 10;
 async function getResponse(){
 	if(!response_cache) {
 		response_cache = await db.collection('projectblogposts').get().then((snapshot)=>{
-            console.log("Firebase called");
             let blogs = snapshot.docs.map((doc)=>{
                 return {id: doc.id,...doc.data()};
             });
-			console.log(blogs);
             return blogs;
         });
 	}
-	console.log(response_cache);
-	return response_cache;
+	return JSON.parse(JSON.stringify(response_cache));
 }
 
 async function populateFilters() {

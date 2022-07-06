@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="/custom.css" rel="stylesheet">
+        <link href="project_blogpost.css" rel="stylesheet"> 
+        <link href="/highlight/styles/github-dark.min.css" rel="stylesheet">
+    </head>
+    <body> 
+        <main role="main" class="container" id="pagecontainer" style="margin-bottom: 10rem">
+            <div class="project-headbar clearfix" id="headerContent">
+</div>
+            <div class="row">
+                <div class="col-md-8 blog-main">
+                    <div class="blog-post">
+                        <h2 class="blog-post-title">Integrating Firebase into my Website</h2>
+                        <p class="blog-post-meta"><i>Project Created in May 2022</i></p>
+                        <p>All lines of code written in this project came from me... and maybe some small pieces from stackoverflow.&nbsp;</p>
+                        <hr class="bg-secondary">
+                        <div id="preamble">
+                            <h3 class="section-header">Introduction</h3>
+                            <p>I decided to learn Google's awesome platform Firebase out of interest for a position. Thanks to <a href="https://www.youtube.com/c/TheNetNinja">The Net Ninja's</a> tutorial series on <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9jUPIes_B8vRjn1_GaplOPQ">Firebase: Auth</a> and <a href="https://www.youtube.com/playlist?list=PL4cUxeGkcC9i_aLkr62adUTJi53y7OjOf">Firebase: Cloud Functions</a> I was able to easily pick up and add Firebase as a backend platform for my currently static website hosted by Gitpages.</p>
+                        </div>
+                        <div id="thegoals">
+                            <h3 class="section-header">The Goals</h3>
+                            <p>My main goal for this project was to learn Firebase in a practical setting. Seeing as my website already has a blogpost format, I decided to create a metadata system that:</p>
+                            <ul>
+                                <li>Has a user system for authentication purposes</li>
+                                <li>Creates new blogpost metadata</li>
+                                <li>Deletes blogpost metadata</li>
+                                <li>Edits/Updates blogpost metadata</li>
+                            </ul>
+                            <p>Notes: This system will only manage metadata, not the actual content in each blogpost. Firestore is only a database, not a file system, thus storing entire html files of info is not what it is meant for. In future projects I will most likely migrate this website to a different host (like AWS) to allow support for such features.</p>
+                        </div>
+                        <div id="currentformat">
+                            <h3 class="section-header">Current Format</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>Currently, all of my website info is stored in the github repository, including all the pages, images, code, etc. </p>
+                            <p>The metadata for the projects is stored in a (discontinued) json file located at <a href="/projects.json">http://www.evanpartidas.com/projects.json</a></p>
+                            <p>Here is what the file looks like.</p>
+                            <pre><code>[
+{"id":"neuralnetworkclass",
+"title":"Neural Network Class",
+"date":"February 2019",
+"about":"In this project I built a regular feed-forward Neural Network class in java. It has methods for supervised and unsupervised learning. The entire project was made entirely from scratch in java.",
+"url":"/project/neuralnetworkclass.html",
+"filters":
+{
+	"languages":["java"],
+	"tags":["MachineLearning","NeuralNetworks"]
+}
+},
+    {"id":"vjudgecontestscheduler",
+"title":"Vjudge Contest Scheduler",
+"date":"January 2021",
+"blogdate":"01/11/2022",
+"about":"The Vjudge Contest Scheduler is a website automation program written in node.js. It is extremely fast as it utilizes GET/POST requests to login to vjudge and set up a contest as it starts.",
+"url":"/project/vjudgecontestscheduler.html",
+"filters":
+{
+	"languages":["nodejs"],
+	"tags":["GETPOST","Webscrapper"]
+}
+}, 
+{"id":"smarthomeoverview",
+"title":"Smart Home System Overview",
+"date":"May 2022",
+"blogdate":"06/11/2022",
+"about":"This is a Smart Home system I am writing for my house. Throughout multiple posts is the documentation of the lengthy process of automating random things around my house.",
+"url":"/project/smarthomeoverview.html",
+"filters":
+{
+	"languages":["nodejs"],
+	"tags":["SmartHome","RaspberryPi"]
+}
+}, 
+{"id":"smarthomesprinkler",
+"title":"Hacking my Sprinkler System",
+"date":"May 2022",
+"blogdate":"06/11/2022",
+"about":"This is part of my Smart Home system I am writing for my house. In this project I create a smart sprinkler controller from a raspberry pi.",
+"url":"/project/smarthomesprinkler.html",
+"filters":
+{
+	"languages":["nodejs","html"],
+	"tags":["SmartHome","RaspberryPi"]
+}
+}
+]</code></pre>
+                            <p>The json file is simply an array of objects, which are the projects. Each project is made up of 8 different metadata points.</p>
+                            <ol>
+                                <li>"id": the unique id of the project</li>
+                                <li>"title": the title of the project</li>
+                                <li>"root" specifies where all the static html files are.</li>
+                                <li>"date" the approximate date for when the project was created</li>
+                                <li>"blogdate" the date the project blogpost is posted tt the website</li>
+                                <li>"about" basic project description</li>
+                                <li>"url" relative link to the project</li>
+                                <li>"filters" tags to use for searching through all projects</li>
+                            </ol>
+                            <p>The purpose of this metadata is to use for searching through all projects at once. Such as on the <a href="/projects.html">projects page</a>.</p>
+                            <img class="blog-img" src="/project/integratingfirebaseintomywebsite/projectspage.png">
+                            <p><i>Note: screenshot taken after implementing Firebase</i></p>
+                            <p>The <a href="/js/blogpostfilter.js">blogpostfilter.js</a> code is what currently has all the functionality of the browsing window.</p>
+                        </div>
+                        <div id="firebaseauth">
+                            <h3 class="section-header">Firebase Auth</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>Before adding functionality to edit projet metadata, I want to have a user system in place to use for authentication.</p>
+                            <p>Thankfully, Firebase Auth is super easy to setup and use, so it was ready in no time. </p>
+                            <img class="blog-img" src="/project/integratingfirebaseintomywebsite/firebaseauth.png">
+                            <p>
+    I censored my personal email, but I manually added an account for myself to use.</p>
+                            <p>
+    Next I created a login page, nothing special as this is just for myself to use.</p>
+                            <img class="blog-img" src="/project/integratingfirebaseintomywebsite/loginpage.png">
+                            <p>
+    It is almost empty with nothing but a submit form. I will most likely go back and update this page's look and feel but for now I am mostly focused on functionality.</p>
+                            <p>
+        The code that runs the page is expectedly short. Firebase's web SDK simplifies the login process to a single function</p>
+                            <pre><code>const loginForm = document.querySelector(&quot;#loginForm&quot;);
+loginForm.addEventListener('submit', (e) =&gt; {
+    e.preventDefault(); 
+    const email = loginForm['email'].value;
+    const password = loginForm['password'].value; 
+    auth.signInWithEmailAndPassword(email,password).then((cred)=&gt;{
+        console.log(cred);
+    });
+});
+auth.onAuthStateChanged((user)=&gt;{
+    if(user){
+        window.location.href=&quot;/editprojects.html&quot;
+    }
+});</code></pre>
+                            <p>
+    Logging in with the auth object is handled completely by the Firebase SDK. Once the user is logged in an auth state change event is triggered. When this event fires, if the user is logged in, it redirects them to the edit projects page. The editing page is the only page which the user would need to be logged in to use.</p>
+                        </div>
+                        <div id="cloudfunctions">
+                            <h3 class="section-header">The Cloud Functions</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>Now I will create the backend for the website. I just need to create three functions for adding to, removing from, and editing the database</p>
+                            <p>
+    The easiest function to create is the update function.</p>
+                            <pre><code>//Update a blogpost if the user has permissions
+exports.updateBlogpost = functions.https.onCall((data, context)=&gt;{
+    //Retrieve user data from database
+    return admin.firestore().collection(&quot;users&quot;).doc(context.auth.uid).get()
+        .then((doc)=&gt;{
+            const docData = doc.data();
+            console.log(`User: ${context.auth.uid} Data: ${JSON.stringify(docData)}`);
+            //Check if the user is an admin
+            if (!docData.admin) {
+                return {success: false, message: &quot;Access Denied&quot;};
+            }
+            const newData = JSON.parse(JSON.stringify(data));
+            delete newData.id;
+            //Merge-Update the document in the collections
+            return admin.firestore().collection('projectblogposts').doc(data.id)
+                .set(newData, {merge: true}).then(()=&gt;{
+                    return {success: true};
+                });
+        });
+});</code></pre>
+                            <p>Firstly, I get the user's data from the <code>'users'</code> collection. Then I check if the user's has the admin field set to <code>true</code>. If the user is an admin, I will find the document in the blogpost collection that has the same id as the id in the data the user provided and merge the new data with the old data.</p>
+                            <p> <i>Note: Collections are like tables in SQL, and an entry/record is called a document.</i></p>
+                            <p>
+    Now I will pretty much copy the code over to create the removal function.</p>
+                            <pre><code>//Delete blogpost
+exports.deleteBlogpost = functions.https.onCall((data, context)=&gt;{
+    //Retrieve user data from database
+    return admin.firestore().collection(&quot;users&quot;).doc(context.auth.uid).get()
+        .then((doc)=&gt;{
+            const docData = doc.data();
+            console.log(`User: ${context.auth.uid} Data: ${JSON.stringify(docData)}`);
+            //Check if the user is an admin
+            if (!docData.admin) {
+                return {success: false, message: &quot;Access Denied&quot;};
+            }
+            //Delete the document from the collection
+            console.log(`Deleting blogpost: ${data.id}`);
+            return admin.firestore().collection('projectblogposts').doc(data.id).delete().then((ref)=&gt;{
+                    sendEmailToMyself(&quot;Portfolio: Project Deleted&quot;,
+                    `Hello Evan,
+This is an automated email you setup in cloud functions.
+A project blogpost has been deleted
+Title: ${data.title}
+Url: ${data.url}
+About: ${data.about}
+Do what you will with the information,
+Thank you,
+Yourself`);
+                    return {success: true};
+                });
+        });
+});</code></pre>
+                            <p>
+    This function is almost exactly the same, except after deleting the element I also send an email to myself to notify me a post has been deleted. I'll explain the email system in the next section.</p>
+                            <p>
+    Now all that's left is creation, which requires a bit more logic than the other two.</p>
+                            <pre><code>//Create a blogpost if the user has permissions
+exports.createBlogpost = functions.https.onCall((data, context)=&gt;{
+    //Retrieve user data from database
+    return admin.firestore().collection(&quot;users&quot;).doc(context.auth.uid).get()
+        .then((doc)=&gt;{
+            const docData = doc.data();
+            console.log(`User: ${context.auth.uid} Data: ${JSON.stringify(docData)}`);
+            //Check if the user is an admin
+            if (!docData.admin) {
+                return {success: false, message: &quot;Access Denied&quot;};
+            }
+            //Ensure data is valid
+            const necessaryFields = {
+                &quot;title&quot;: &quot;string&quot;,
+                &quot;about&quot;: &quot;string&quot;,
+                &quot;date&quot;: &quot;string&quot;,
+                &quot;filters&quot;: &quot;object&quot;,
+                &quot;url&quot;: &quot;string&quot;,
+            };
+            let passed = true;
+            let expectedFields = &quot;Expected Fields: &quot;;
+            for (const [key, value] of Object.entries(necessaryFields)) {
+                if ( (!data[key]) || !(typeof data[key] === value)) {
+                    passed = false;
+                    expectedFields+=`${key}|${value} received: ${data[key]}, `;
+                }
+            }
+            //Send response with error message
+            if (!passed) {
+                return {success: false, message: expectedFields};
+            }
+            //Add the document into the collection
+            return admin.firestore().collection('projectblogposts').add(data).then((ref)=&gt;{
+                    sendEmailToMyself(&quot;Portfolio: Project Posted&quot;,
+                    `Hello Evan,
+This is an automated email you setup in cloud functions.
+A new project blogpost has been added
+Title: ${data.title}
+Url: ${data.url}
+About: ${data.about}
+Do what you will with the information,
+Thank you,
+Yourself`);
+                    return {success: true};
+                });
+        });
+});</code></pre>
+                            <p>In this function I also validate the new data object. I ensure all of the data exists and is of the correct type with the <code>typeof</code> operator.&nbsp;</p>
+                            <p>If any of the fields are missing or they are of the incorrect type, they are added to a response message string. The string is sent in a response object with the <code>success</code> field set to <code>false</code>.</p>
+                        </div>
+                        <div id="automaticemails">
+                            <h3 class="section-header">Automatic Emails</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>In the previous section the code featured a function that sends an email to my personal email. I have this in order to be notified when my functions have run properly.</p>
+                            <p>
+        I am using the nodemailer module in order to send an email from zoho, which is the current host I use for the emails for my website. </p>
+                            <p>
+        The nodemailer module was fairly easy to setup, I first had to create what's called a transport that will hold the data for the email address from which the email is sent. </p>
+                            <pre><code>//Setup email transport
+const transporter = nodemailer.createTransport({
+    host: 'smtp.zoho.com',
+    port: '465',
+    secure: true,
+    auth: {
+        user: '[redacted]@evanpartidas.com',
+        pass: emailPassword,
+    },
+});</code></pre>
+                            <p>
+        Of course I don't list emails on here so that I don't get spammed. The password is stored in a separate file.</p>
+                            <p>
+        Next, I created a function that will send the emails for me to make the code a bit cleaner. </p>
+                            <pre><code>
+/**
+ * Send an email to myself
+ * @param {string} subject The subject of the email
+ * @param {string} message The text of the email
+ * @return {Promise&lt;SMTPTransport.SentMessageInfo&gt;}
+ */
+function sendEmailToMyself(subject, message) {
+    return transporter.sendMail({
+        to: &quot;[redacted]&quot;,
+        subject: subject,
+        from: '[redacted]@evanpartidas.com',
+        text: message,
+    }).then((something)=&gt;{
+        //Log the email response
+        console.log(`Email response: ${something.response}`);
+        return something;
+    });
+}</code></pre>
+                            <p>
+        I also log the response and return the object in case I wish to use it. </p>
+                        </div>
+                        <div id="editprojectspage">
+                            <h3 class="section-header">The Edit Projects Page</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>Finally, the last step is to create a user interface for editing the project metadata database.</p>
+                            <p>All the page needs to do is display the entries in the current database and allow for editing/insertion/deletion.</p>
+                            <p>Because react.js is great at quickly creating interactable interfaces, I coded this part using react.</p>
+                            <p>
+        The code is a bit long and is not very interesting. It is located at <a href="/editprojects.js">http://www.evanpartidas.com/editprojects.js</a> </p>
+                            <p>There was one problem where, after adding or removing from the database, the list of items would have a duplicate element in place of the added element, or would often have a phantom element with the deleted entry's data in place of another element whose entry is still in the database.</p>
+                            <img class="blog-img" src="/project/integratingfirebaseintomywebsite/guiproblem.png">
+                            <p><i>Here's an example of a duplicated element in place of an added element.</i></p>
+                            <p>I assumed this was because of some feature that react.js has to save computation power by using old data in place of new data.</p>
+                            <p>My suspicions were pretty spot on, react.js will simply pass in the new props to a component instead of reconstructing it. Which definitely makes sense, however, since our state data is not updated when this happens it leads to the odd results seen earlier.</p>
+                            <p>The fix was very simple, I just hooked into the event that is fired when the props are updated and update the state data as well.</p>
+                            <pre><code>//This function is essential, if the props get updated, the state will not. Most likely due to react saving CPU by not reconstructing all the react components.
+componentDidUpdate(prevProps) {
+    if(prevProps.data &amp;&amp; prevProps.data.id !== this.props.data.id){
+        this.setState({
+            cloudData: this.props.data,
+            data: this.props.data,
+            filtersString: JSON.stringify(this.props.data.filters)});
+    }
+}</code></pre>
+                        </div>
+                        <div id="demo">
+                            <h3 class="section-header">Quick Demo</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>Here is a short demo of the new Firebase integration with my website.</p>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Al1MiOAoLTQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div id="theconclusion">
+                            <h3 class="section-header">The Conclusion</h3>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                            <p>I now have a way to dynamically edit the project metadata. This can help save me a lot of commits that would just be "updating project metadata."</p>
+                            <p>I am also very comfortable with Firebase for both backend and frontend development after completing this project.</p>
+                            <p>In the future I plan to continue to use Firebase for authentication and for database storage, but I will move to AWS instead of Github in order to allow me to edit pages and more otherwise static data using an online UI as opposed to committing the changes to a Github Repo.</p>
+                            <p class="mt-n2"> <a href="#">Back to top</a> </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.blog-main -->
+                <aside class="col-md-4 blog-sidebar">
+                    <div class="p-3 mb-3 rounded bg-secondary">
+                        <h4 class="font-italic">About</h4>
+                        <p class="mb-0">This is a short project where over the course of a week, I learned to use Firebase and added it to my website to provide a little bit of dynamic backend.</p>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-italic">Overview</h4>
+                        <ol class="list-unstyled mb-0">
+                            <li>
+                                <a href="#preamble">Introduction</a>
+                            </li>
+                            <li>
+                                <a href="#thegoals">The Goals</a>
+                            </li>
+                            <li>
+                                <a href="#currentformat">Current Format</a>
+                            </li>
+                            <li>
+                                <a href="#firebaseauth">Firebase Auth</a>
+                            </li>
+                            <li>
+                                <a href="#cloudfunctions">The Cloud Functions</a>
+                            </li>
+                            <li>
+                                <a href="#automaticemails">Automatic Emails</a>
+                            </li>
+                            <li>
+                                <a href="#editprojectspage">The Edit Projects Page</a>
+                            </li>
+                            <li>
+                                <a href="#demo">Quick Demo</a>
+                            </li>
+                            <li>
+                                <a href="#theconclusion">The Conclusion</a>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="font-italic">Social Media</h4>
+                        <ol class="list-unstyled">
+                            <li>
+                                <a href="https://github.com/evanpartidas">GitHub</a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/evan-partidas-2029aa214/">LinkedIn</a>
+                            </li>
+                        </ol>
+                    </div>
+                </aside>
+                <!-- /.blog-sidebar -->
+            </div>
+            <!-- /.row -->
+        </main>
+        <!-- /.container -->
+        <footer class="blog-footer">
+</footer>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/highlight/highlight.min.js"></script>
+        <script src="/js/jquery-3.6.0.min.js"></script>
+        <script src="/custom.js"></script>
+        <script> 
+    $(async function(){
+      $("#headerContent").load("/headbar.html"); 
+        waitForEl("#ProjectsNavItem",function(){
+            $("#ProjectsNavItem").addClass("active");
+        });
+    });
+           hljs.initHighlightingOnLoad();
+    </script>         
+    </body>
+</html>

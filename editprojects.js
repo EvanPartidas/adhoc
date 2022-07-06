@@ -1,16 +1,16 @@
 const e = React.createElement;
 
-
+//Class for the individual items in the list
 class EditableProject extends React.Component{
     constructor(props){
         super(props);
-        if(props.data){
+        if(props.data){//The creation component will not have data
             this.state = {
-                isAddProjectItem: false,
-                open: false,
-                cloudData: props.data,
-                data: props.data,
-                filtersString: JSON.stringify(props.data.filters)
+                isAddProjectItem: false, //A quick variable to check if this component is for creation or not
+                open: false,//Whether or not the project is currently being edited
+                cloudData: props.data, //The data that matches what is currently in the cloud
+                data: props.data, //The current data (edited)
+                filtersString: JSON.stringify(props.data.filters) //a string to use for the filters as objects would be buggy to work with
             }
         }
         else{
@@ -28,12 +28,12 @@ class EditableProject extends React.Component{
 
         this.setState({open: !this.state.open});
     }
-
+	//Detoggle the dropdown and clear edited data
     cancelEdits(){
 
         this.setState({open: false, data: this.state.cloudData, filtersString: JSON.stringify(this.state.cloudData.filters)});
     }
-
+	//Send the edits to the cloud
     postEdits(){
         if(!this.validJSON(this.state.filtersString))
             return;
@@ -48,7 +48,7 @@ class EditableProject extends React.Component{
             console.log(response);
         });
     }
-
+	//Create a new post
     postCreate(){
         if(!this.validJSON(this.state.filtersString))
             return;
@@ -63,17 +63,17 @@ class EditableProject extends React.Component{
             console.log(response);
         });
     }
-
+	//Update one of the simple data attributes
     updateData(data){
         const newData = {...this.state.data, ...data};
         this.setState({data: newData});
     }
-
+	//Update the filters attribute
     updateJSON(string){
         this.setState({filtersString: string});
 
     }
-
+	//Simple function to check if the JSON data is valid
     validJSON(string){
         try{
             JSON.parse(string);
@@ -81,11 +81,12 @@ class EditableProject extends React.Component{
         }catch(err){return false}
     }
 
+    //Used for the creation component, simply blanks everthing
     clearToEmpty(){
         this.setState({data: {title: "", about: "", date: "", filters: {}, url: ""},
             filtersString: "{\"languages\": [], \"tags\": []}"});
     }
-
+	//Delete a blogpost
     deletePost(){
         let confirmation = confirm(`Do you want to delete ${this.state.data.title}?`);
         if(confirmation){
@@ -96,6 +97,7 @@ class EditableProject extends React.Component{
             });
         }
     }
+    //This function is essential, if the props get updated, the state will not. Most likely due to react saving CPU by not reconstructing all the react components.
     componentDidUpdate(prevProps) {
         if(prevProps.data && prevProps.data.id !== this.props.data.id){
             this.setState({
@@ -104,10 +106,10 @@ class EditableProject extends React.Component{
                 filtersString: JSON.stringify(this.props.data.filters)});
         }
     }
-
+	//Loads of html
     render(){
         let data = this.state.data;
-        if(this.state.open){
+        if(this.state.open){//Is the item dropped down or not
             return (
                 <div >
                     <div className="row " >
@@ -152,7 +154,7 @@ class EditableProject extends React.Component{
                     </div>
                 </div>);
         }
-        return (
+        return (//If not dropped down, just display some basic info
             <div onClick={this.toggleDropdown.bind(this)}>
                 <div className="row" id="ItemTemplate" >
                     <div className="col">
@@ -167,7 +169,7 @@ class EditableProject extends React.Component{
             </div>);
     }
 }
-
+//Container class for all the different blogposts
 class EditProjectWindow extends React.Component{
 
     constructor(){
@@ -178,9 +180,7 @@ class EditProjectWindow extends React.Component{
     }
 
     componentDidMount(){
-        console.log("Calling firebase");
         db.collection('projectblogposts').get().then((snapshot)=>{
-            console.log("Firebase called");
             let blogs = snapshot.docs.map((doc)=>{
                 return {...doc.data(),id: doc.id};
             });
@@ -188,7 +188,7 @@ class EditProjectWindow extends React.Component{
         });
 
     }
-    
+    //Repoll the database to get the most updated version
     handleDatabaseUpdate(){
         db.collection('projectblogposts').get().then((snapshot)=>{  
             let blogs = snapshot.docs.map((doc)=>{
