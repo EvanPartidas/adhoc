@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link href="/custom.css" rel="stylesheet"> 
+        <link href="/index.css" rel="stylesheet"> 
+        <link href="/projects.css" rel="stylesheet">
+        <link href="/highlight/styles/github-dark.min.css" rel="stylesheet">
+    </head>
+    <body> 
+        <main role="main" class="container" id="pagecontainer" style="margin-bottom: 10rem;">
+            <div class="project-headbar clearfix" id="headerContent">
+</div>
+            <div class="row" style="padding: 1rem">
+                <div class="blog-main col-md-12" style="margin-bottom: 1rem">
+                    <div class="blog-post">
+                        <h2>Free Quote</h2>
+                        <p>Get the cost to make your website/app/software!</p>
+                        <hr class="bg-secondary">
+                        <form id="emailform">
+							<input style="display: none;" name="date"/>
+                            <div>
+                                <label class="col-form-label-lg text-capitalize">Contact Info</label>
+                                <div class="form-check">
+                                    <label class="form-check-label" for="emailinput">Email</label>
+                                    <input class="form-check-input" name="email" id="emailinput" placeholder="ex. joe@domain.com">
+                                </div>                                         
+                                <div class="form-check">
+                                    <label class="form-check-label" for="nameinput">Name</label>
+                                    <input class="form-check-input" name="name" id="nameinput" placeholder="ex. John Smith">
+                                </div>                   
+                                <div class="form-check">
+                                    <label class="form-check-label" for="companyinput">Company</label>
+                                    <input class="form-check-input" name="Company" id="companyinput" placeholder="ex. Bob's Burgers">
+                                </div>                  
+                                <div class="form-check">
+                                    <label class="form-check-label" for="businessinput">Business</label>
+                                    <input class="form-check-input" name="Business" id="businessinput" placeholder="ex. Restaraunt">
+                                </div>                  
+                            </div>
+                            <div>
+                                <label class="col-form-label-lg text-capitalize">What do you need?</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="Website" id="websitecheck" type="checkbox">
+                                    <label class="form-check-label" for="websitecheck">Website</label>
+                                </div>           
+                                <div class="form-check">
+                                    <input class="form-check-input" name="Mobile App" id="appcheck" type="checkbox">
+                                    <label class="form-check-label" for="appcheck">Mobile App</label>
+                                </div>                  
+                                <div class="form-check">
+                                    <input class="form-check-input" name="Other Software" id="softwarecheck" type="checkbox">
+                                    <label class="form-check-label" for="softwarecheck">Other Software</label>
+                                </div>                                                                               
+                            </div>
+                            <div>
+                                <label class="col-form-label-lg text-capitalize">Please describe what you want your website/app/software to do. (Display Info, Selling, Booking, etc)</label>
+                                <br/>
+                                <textarea style="width: 100%; height: 10rem" placeholder="I would like a website and app for my restaraunt that allows people to make reservations and order food for pickup..."></textarea>
+                            </div>
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
+                </div>
+                <!-- /.blog-main -->
+                
+                <!-- /.blog-sidebar -->
+            </div>
+            <!-- /.row -->
+        </main>
+        <!-- /.container -->
+        <footer class="blog-footer">
+</footer>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/highlight/highlight.min.js"></script>
+        <script src="/js/jquery-3.6.0.min.js"></script>
+        <script src="/custom.js"></script>
+        <script> 
+    $(async function(){
+      $("#headerContent").load("/headbar.html"); 
+        waitForEl("#ProjectsNavItem",function(){
+            $("#FreeQuoteNavItem").addClass("active");
+        });
+    });
+           hljs.highlightAll();
+    </script>     
+<script src="js/blogpostfilter.js"></script>
+    </body>
+</html>
