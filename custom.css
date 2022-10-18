@@ -20,3 +20,15 @@
     width: 60%;
     left: 20%;
 }
+
+input{
+    border-color: #666666;
+    background-color: #444444;
+    color: #ffffff;
+}
+textarea{
+	border-color: #666666;
+	background-color: #444444; 
+	color:#dddddd;
+	margin-bottom: 2%;
+ }
