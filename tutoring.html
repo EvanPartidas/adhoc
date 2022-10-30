@@ -6,20 +6,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="Evan Partidas">
-        <title>Evan Partidas</title>
+        <title>CS Tutoring</title>
         <!-- Bootstrap core CSS -->
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
         <!-- Custom styles for this template -->
-        <link href="index.css" rel="stylesheet">
+        <link href="tutoring.css" rel="stylesheet">
         <link href="custom.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700" />
     </head>
     <body>
         <div class="site-wrapper">
             <div class="site-wrapper-inner">
                 <div class="cover-container">
-                    <div class="masthead clearfix" id="headerContent">
+                    <div class="clearfix" id="headerContent">
 </div>
-                    <div class="inner cover-page-block cover">
+                    <div class="inner cover-page-block cover mt-5">
                         <h1 class="cover-heading">Computer Science Tutoring</h1>
                         <h3>$25/hr</h3>
                         <p class="lead">UCF: Foundation Exam, CS1, CS2, OOP, etc</p>
@@ -29,10 +30,22 @@
                         <p class="lead">Email: tutoring@evanpartidas.com</p>
                         <p class="lead"> <a href="contact.html" class="btn btn-cover btn-lg">Contact</a> </p>
                     </div>
-                    <div class="mastfoot">
-                        <div class="inner">
-</div>
+                    
+                </div>
+                <div class="container verbose-content mt-5 p-5 solid-background">
+                    <div class="row">
+                        <div class="col">
+                                <h1>Scheduling</h1>
+                        </div>
                     </div>
+                    <div id="react-calendar" >
+                    <div class="row calendar-container"><div style="display: none;"></div><div class="col calendar-day m-1 p-3"><div class="row"><div class="col"><h3>Monday</h3></div></div><div class="row calendar-outterblock"><div class="col"><div class="row" style="padding: 10%;"><div class="col"><div class="row"><div class="col"><h4>10/24</h4></div></div><div class="col"><div class="row"><div class="col calendar-innerblock "><h5>None</h5></div></div></div></div></div><div class="row" style="padding: 10%;"><div class="col"><div class="row"><div class="col"><h4>10/31</h4></div></div><div class="col"><div class="row"><div class="col calendar-innerblock "><h5>None</h5></div></div></div></div></div></div></div></div><div class="col calendar-day m-1 p-3"><div class="row"><div class="col"><h3>Tuesday</h3></div></div><div class="row calendar-outterblock"><div class="col"><div class="row" style="padding: 10%;"><div class="col"><div class="row"><div class="col"><h4>10/25</h4></div></div><div class="col"><div class="row"><div class="col calendar-innerblock "><h5>None</h5></div></div></div></div></div><div class="row" style="padding: 10%;"><div class="col"><div class="row"><div class="col"><h4>11/1</h4></div></div><div class="col"><div class="row"><div class="col calendar-innerblock "><h5>None</h5></div></div></div></div></div></div></div></div><div class="col calendar-day m-1 p-3"><div class="row"><div class="col"><h3>Wednesday</h3></div></div><div class="row calendar-outterblock"><div class="col"><div class="row" style="padding: 10%;"><div class="col"><div class="row"><div class="col"><h4>10/26</h4></div></div><div class="col"><div class="row"><div class="col calendar-innerblock "><h5>None</h5></div></div></div></div></div><div class="row" style="padding: 10%;"><div class="col"><div class="row"><div class="col"><h4>11/2</h4></div></div><div class="col"><div class="row"><div class="col calendar-innerblock "><h5>None</h5></div></div></div></div></div></div></div></div><div class="col calendar-day m-1 p-3"><div class="row"><div class="col"><h3>Thursday</h3></div></div><div class="row calendar-outterblock"><div class="col"><div class="row" style="padding: 10%;"><div class="col"><div class="row"><div class="col"><h4>10/27</h4></div></div><div class="col"><div class="row"><div class="col calendar-innerblock "><h5>None</h5></div></div></div></div></div><div class="row" style="padding: 10%;"><div class="col"><div class="row"><div class="col"><h4>11/3</h4></div></div><div class="col"><div class="row"><div class="col calendar-innerblock "><h5>None</h5></div></div></div></div></div></div></div></div><div class="col calendar-day m-1 p-3"><div class="row"><div class="col"><h3>Friday</h3></div></div><div class="row calendar-outterblock"><div class="col"><div class="row" style="padding: 10%;"><div class="col"><div class="row"><div class="col"><h4>10/28</h4></div></div><div class="col"><div class="row"><div class="col calendar-innerblock "><h5>None</h5></div></div></div></div></div><div class="row" style="padding: 10%;"><div class="col"><div class="row"><div class="col"><h4>11/4</h4></div></div><div class="col"><div class="row"><div class="col calendar-innerblock "><h5>None</h5></div></div></div></div></div></div></div></div><div style="display: none;"></div></div>
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <div class="inner">
+                        
+</div>
                 </div>
             </div>
         </div>
@@ -44,10 +57,14 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="js/jquery-3.6.0.min.js"></script>
         <script src="custom.js"></script>
+        <script type="text/javascript" src="js/react/react.development.js"></script>
+        <script type="text/javascript" src="js/react/react-dom.development.js"></script>
+        <script type="text/javascript" src="js/react/babel.min.js"></script>	         
+        <script type="text/babel" src="tutoring.js"></script>
         <script> 
     $(async function(){
       $("#headerContent").load("headbar.html"); 
-        console.log($("#headerContent"));
+        //console.log($("#headerContent"));
     });
     </script>         
     </body>
