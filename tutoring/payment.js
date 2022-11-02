@@ -52,6 +52,10 @@ function unixToDate(unix){
     return ret;
 }
 
+function dateToHMA(date, hour12){
+	return date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12});
+}
+
 class SchedulingWindow extends React.Component{
 
     constructor(){
@@ -187,20 +191,20 @@ class SchedulingWindow extends React.Component{
         if(e){
             e.preventDefault();
         }
-        setLoading(true);
+	let elements = this.state.stripeElements
         const { error } = await stripe.confirmPayment({
             elements,
             confirmParams: {
             // Make sure to change this to your payment completion page
-            return_url: `/tutoring/payment?bookableStartTime=${this.state.timeSlot.startTimeUnix}`,
+		    return_url: `https://evanpartidas.com/tutoring/payment?bookableStartTime=${this.state.timeSlot.startTimeUnix}`,
             },
         });
+	console.log(error);
         if (error.type === "card_error" || error.type === "validation_error") {
             showMessage(error.message);
         } else {
             showMessage("An unexpected error occurred.");
         }
-        setLoading(false);
     }
 
     render(){
@@ -223,9 +227,9 @@ class SchedulingWindow extends React.Component{
             let customerTimeBlock = this.state.customerTimeBlock;
             let timeSlot = this.state.timeSlot;
             let startTime = unixToDate(timeSlot.startTimeUnix);
-            let startTimeStr = startTime.toLocaleTimeString('en-US',{hour12: false});
+            let startTimeStr = dateToHMA(startTime,false);
             let endTime = unixToDate(timeSlot.startTimeUnix+timeSlot.durationSeconds);
-            let endTimeStr = endTime.toLocaleTimeString('en-US',{hour12: false});
+            let endTimeStr = dateToHMA(endTime,false);
             return (
                 <div>
                     <div className="row"><div className="col"><h2>Booking For {days[startTime.getDay()]}, {startTime.getMonth()+1}/{startTime.getDate()}</h2></div></div>
@@ -314,9 +318,9 @@ class SchedulingWindow extends React.Component{
         if(this.state.state === "verify"){//People can verify the data they entered is correct
             let customerTimeBlock = this.state.customerTimeBlock;
             let startTime = unixToDate(customerTimeBlock.startTimeUnix);
-            let startTimeStr = startTime.toLocaleTimeString('en-US',{hour12: true});
+            let startTimeStr = dateToHMA(startTime,true);
             let endTime = unixToDate(customerTimeBlock.startTimeUnix+customerTimeBlock.durationSeconds);
-            let endTimeStr = endTime.toLocaleTimeString('en-US',{hour12: true});
+            let endTimeStr = dateToHMA(endTime,true);
             return (
             <div>
                 <div className="row"><div className="col"><h2>Booking For {days[startTime.getDay()]}, {startTime.getMonth()+1}/{startTime.getDate()}</h2></div></div>
@@ -404,25 +408,21 @@ class SchedulingWindow extends React.Component{
             return (
                 <div>
                 <div className="row"><div className="col"><h2>Booking For {days[startTime.getDay()]}, {startTime.getMonth()+1}/{startTime.getDate()}</h2></div></div>
-                <form className="row form-card rounded">
-                <div id="payment-element">
+                <form className="row form-card rounded mb-3">
+                <div id="payment-element" className="col">
                     {/*<!--Stripe.js injects the Payment Element-->*/}
                 </div>
-                <button id="submit">
-                    <div className="spinner hidden" id="spinner"></div>
-                    <span id="button-text">Pay now</span>
-                </button>
                 <div id="payment-message" className="hidden"></div>
                 </form>
-                <div className="row">
-                    <div className="col">
-                        <button className="btn-evan" onClick={()=>{
+                <div className="row form-card rounded">
+                    <div className="col-6">
+                        <button className="btn-evan" style={{width: "50%"}} onClick={()=>{
                             this.setState({state: "verify"}); 
                             this.state.stripeElements = null;
                     }}>Back</button>
                     </div>
-                    <div className="col">
-                        <button className="btn-evan" onClick={null}>Pay</button>
+                    <div className="col-6">
+                        <button className="btn-evan" style={{width: "50%"}} onClick={this.stripeFormSubmit.bind(this)}>Pay</button>
                     </div>
                 </div>
             </div>
