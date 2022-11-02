@@ -93,18 +93,20 @@ class SchedulingWindow extends React.Component{
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(bodyContent),
-        });
-        const { clientSecret } = await response.json();
+        }).catch((err)=>{console.log(err)});
+	const json = await response.json();
+	console.log(json);
+        const { clientSecret } = json;
         const appearance = {
             theme: 'night',
             variables: {
                 colorPrimary: '#808080',
             },
         };
-        elements = stripe.elements({ appearance, clientSecret });
+        let elements = stripe.elements({ appearance, clientSecret });
         
         const paymentElement = elements.create("payment");
-        paymentElement.mount("#payment-element");
+        waitForEl("#payment-element",()=>{paymentElement.mount("#payment-element")});
         if(this.state.state==="pay")//Because it's async, make sure we're on the right state
             this.setState({stripeElements: elements});
     }
