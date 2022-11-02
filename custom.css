@@ -7,6 +7,30 @@ a:hover {
 }
 
 
+/*
+ * Base structure
+ */
+ html,
+ body {
+     height: 100%;
+     background-color: #333;
+ }
+ 
+ body {
+     color: #fff;
+     text-align: center;
+     text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+ }
+
+/* Padding for spacing */
+.inner {
+    padding: 2rem;
+}
+
+html{
+    font-family: 'Nunito', sans-serif;
+}
+
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
     background-image: url('images/blurcode.jpg');
@@ -34,6 +58,7 @@ a:hover {
 
 .verbose-content{
     width: 80%;
+    min-width: min-content;
 }
 
 .solid-background{
