@@ -1,33 +1,5 @@
 const e = React.createElement;
 
-/* Stripe Form Util Functions */
-function showMessage(messageText) {
-    const messageContainer = document.querySelector("#payment-message");
-  
-    messageContainer.classList.remove("hidden");
-    messageContainer.textContent = messageText;
-  
-    setTimeout(function () {
-      messageContainer.classList.add("hidden");
-      messageText.textContent = "";
-    }, 4000);
-  }
-  
-  // Show a spinner on payment submission
-  function setLoading(isLoading) {
-    if (isLoading) {
-      // Disable the button and show a spinner
-      document.querySelector("#submit").disabled = true;
-      document.querySelector("#spinner").classList.remove("hidden");
-      document.querySelector("#button-text").classList.add("hidden");
-    } else {
-      document.querySelector("#submit").disabled = false;
-      document.querySelector("#spinner").classList.add("hidden");
-      document.querySelector("#button-text").classList.remove("hidden");
-    }
-  }
-  /* End Stripe */
-
 function setTimeToHMS(dateObj, hhmmss){//Set Hour,Minutes,Seconds
     if(/[0-9]{2}:[0-9]{2}/.test(hhmmss)){
         let [hours,minutes] = hhmmss.split(":");
@@ -196,14 +168,14 @@ class SchedulingWindow extends React.Component{
             elements,
             confirmParams: {
             // Make sure to change this to your payment completion page
-		    return_url: `https://evanpartidas.com/tutoring/payment?bookableStartTime=${this.state.timeSlot.startTimeUnix}`,
+		    return_url: `https://evanpartidas.com/tutoring/paymentcompleted`,
             },
         });
 	console.log(error);
         if (error.type === "card_error" || error.type === "validation_error") {
-            showMessage(error.message);
+            alert(error.message);
         } else {
-            showMessage("An unexpected error occurred.");
+            alert("An unexpected error occurred.");
         }
     }
 
