@@ -1,113 +1,109 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <link href="/index.css" rel="stylesheet"> 
-        <link href="/projects.css" rel="stylesheet">
-        <link href="/highlight/styles/github-dark.min.css" rel="stylesheet">
-        <link href="/custom.css" rel="stylesheet"> 
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700" />
-        <style>
-html,
-body {
-    font-family: 'Nunito', sans-serif;
-}
-        </style>
-    </head>
-    <body> 
-        <main role="main" class="container" id="pagecontainer" style="margin-bottom: 10rem;">
-            <div class="project-headbar clearfix" id="headerContent">
-</div>
-            <div class="row" style="padding: 1rem">
-                <div class="blog-main col-md-12" style="margin-bottom: 1rem">
-                    <div class="blog-post">
-                        <h2>Free Quote</h2>
-                        <p>Get the cost to make your website/app/software!</p>
-                        <hr class="bg-secondary">
-                        <form id="emailform" action="/api/submitwebsitequoteinquiry" method="GET" onsubmit="handleSubmit(event)">
-							<input style="display: none;" name="date"/>
-			<div class="row">
-                            <div class="col">
-                                <label class="col-form-label-lg text-capitalize">Contact Info</label>
-                                <div class="form-check">
+
+<head>
+    <meta name="author" content="Evan Partidas">
+    <title>Website Quote</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="og:title" content="Evan Partidas">
+    <meta name="og:description" content="Freelance Full Stack Developer">
+    <link href="/highlight/styles/github-dark.min.css" rel="stylesheet">
+    <link href="/headbar.css" rel="stylesheet">
+    <link href="/base.css" rel="stylesheet">
+    <link href="/quoteform.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700" />
+    <style>
+        html,
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <main role="main" class="site-wrapper" style="padding-bottom: 10rem;">
+        <div class="masthead" id="headerContent">
+        </div>
+        <div class="site-content-wrapper" style="padding: 1rem">
+            <div style="margin-bottom: 1rem">
+                <div>
+                    <h2>Free Quote</h2>
+                    <p>Get the cost to make your website/app/software!</p>
+                    <hr class="bg-secondary">
+                    <form id="emailform" action="/api/submitwebsitequoteinquiry" method="GET"
+                        onsubmit="handleSubmit(event)">
+                        <input style="display: none;" name="date" />
+                        <div class="desktop-row ">
+                            <div class="card">
+                                <label>Contact Info</label>
+                                <div class="form-card-grid">
                                     <label for="emailinput">Email</label>
                                     <input name="email" id="emailinput" placeholder="ex. joe@domain.com">
-                                </div>                                         
-                                <div class="form-check">
-                                    <label  for="nameinput">Name</label>
-                                    <input  name="name" id="nameinput" placeholder="ex. John Smith">
-                                </div>                   
-                                <div class="form-check">
-                                    <label  for="companyinput">Company</label>
-                                    <input  name="Company" id="companyinput" placeholder="ex. Bob's Burgers">
-                                </div>                  
-                                <div class="form-check">
-                                    <label  for="businessinput">Business</label>
-                                    <input  name="Business" id="businessinput" placeholder="ex. Restaraunt">
-                                </div>                  
+                                    <label for="nameinput">Name</label>
+                                    <input name="name" id="nameinput" placeholder="ex. John Smith">
+                                    <label for="companyinput">Company</label>
+                                    <input name="Company" id="companyinput" placeholder="ex. Bob's Burgers">
+                                    <label for="businessinput">Business</label>
+                                    <input name="Business" id="businessinput" placeholder="ex. Restaraunt">
+                                </div>
                             </div>
-                            <div class="col">
-                                <label class="col-form-label-lg text-capitalize">What do you need?</label>
-                                <div class="form-check">
-                                    <input  name="Website" id="websitecheck" type="checkbox">
-                                    <label  for="websitecheck">Website</label>
-                                </div>           
-                                <div class="form-check">
-                                    <input  name="Mobile App" id="appcheck" type="checkbox">
-                                    <label  for="appcheck">Mobile App</label>
-                                </div>                  
-                                <div class="form-check">
-                                    <input  name="Other Software" id="softwarecheck" type="checkbox">
-                                    <label  for="softwarecheck">Other Software</label>
-                                </div>                                                                               
+                            <div class="card">
+                                <label>What do you need?</label>
+                                <div class="form-card-grid">
+                                    <label for="websitecheck">Website</label>
+                                    <input name="Website" id="websitecheck" type="checkbox">
+                                    <label for="appcheck">Mobile App</label>
+                                    <input name="Mobile App" id="appcheck" type="checkbox">
+                                    <label for="softwarecheck">Other Software</label>
+                                    <input name="Other Software" id="softwarecheck" type="checkbox">
+                                </div>
                             </div>
-			    </div>
-                            <div>
-                                <label class="col-form-label-lg text-capitalize">Please describe what you want your website/app/software to do. (Display Info, Selling, Booking, etc)</label>
-                                <br/>
-                                <textarea name="Description" style="width: 100%; height: 10rem" placeholder="I would like a website and app for my restaraunt that allows people to make reservations and order food for pickup..."></textarea>
-                            </div>
-                            <input type="submit" value="Submit">
-                        </form>
-                    </div>
+                        </div>
+                        <div class="card form-card-flex">
+                            <label>Please describe what you want your website/app/software to do. (Display Info,
+                                Selling, Booking, etc)</label>
+                            <br />
+                            <textarea name="Description"
+                                placeholder="I would like a website and app for my restaraunt that allows people to make reservations and order food for pickup..."></textarea>
+                        </div>
+                        <div class="card">
+                            <input class="btn" style="border: none" type="submit" value="Submit">
+                        </div>
+                    </form>
                 </div>
-                <!-- /.blog-main -->
-                
-                <!-- /.blog-sidebar -->
             </div>
-            <!-- /.row -->
-        </main>
-        <!-- /.container -->
-        <footer class="blog-footer">
-</footer>
-        <!-- Bootstrap core JavaScript
+        </div>
+        <!-- /.row -->
+    </main>
+    <!-- Bootstrap core JavaScript
     ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="/highlight/highlight.min.js"></script>
-        <script src="/js/jquery-3.6.0.min.js"></script>
-        <script src="/custom.js"></script>
-        <script> 
-    $(async function(){
-      $("#headerContent").load("/headbar.html"); 
-        waitForEl("#ProjectsNavItem",function(){
-            $("#FreeQuoteNavItem").addClass("active");
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/highlight/highlight.min.js"></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/custom.js"></script>
+    <script>
+        $(async function () {
+            $("#headerContent").load("/headbar.html");
+            waitForEl("#ProjectsNavItem", function () {
+                $("#FreeQuoteNavItem").addClass("active");
+            });
         });
-    });
-		function handleSubmit(e){
-			e.preventDefault();
-			let url = "/api/submitwebsitequoteinquiry";
-			var request = new XMLHttpRequest();
-			request.open('POST', url, true);
-			request.onload = function() {
-				alert("Email Sent");
-			};
-			request.error = function() {
-				alert("Error Occurred");
-			}
-			request.send(new FormData(e.target));
-		}
-           hljs.highlightAll();
-    </script>     
-<script src="js/blogpostfilter.js"></script>
-    </body>
+        function handleSubmit(e) {
+            e.preventDefault();
+            let url = "/api/submitwebsitequoteinquiry";
+            var request = new XMLHttpRequest();
+            request.open('POST', url, true);
+            request.onload = function () {
+                alert("Email Sent");
+            };
+            request.error = function () {
+                alert("Error Occurred");
+            }
+            request.send(new FormData(e.target));
+        }
+        hljs.highlightAll();
+    </script>
+    <script src="js/blogpostfilter.js"></script>
+</body>
+
 </html>

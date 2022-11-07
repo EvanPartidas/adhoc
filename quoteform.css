@@ -1,0 +1,43 @@
+
+.form-card-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+    row-gap: 5px;
+}
+
+.form-card-flex{
+    display: flex;
+    flex-direction: column;
+}
+
+textarea{
+    background-color: #111;
+    border-color: #222;
+    color: #eee;
+    flex: 1 1 auto;
+    resize: vertical;
+    min-height: 120px;
+}
+
+@media (min-width: 40rem){
+    .desktop-row{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 5px;
+    }
+    .form-card-grid{
+        width: fit-content;
+        margin: auto;
+    }
+    .site-content-wrapper{
+        width: 80%;
+        margin: auto;
+    }
+}
+
+@media (min-width: 62rem){
+    .site-content-wrapper{
+        width: 49rem;
+    }
+}
