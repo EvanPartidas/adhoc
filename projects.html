@@ -1,121 +1,73 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
-        <link href="/custom.css" rel="stylesheet"> 
-        <link href="/index.css" rel="stylesheet"> 
-        <link href="/projects.css" rel="stylesheet">
-        <link href="/base.css" rel="stylesheet">
-        <link href="/highlight/styles/github-dark.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700" />
-        <style>
-html,
-body {
-    font-family: 'Nunito', sans-serif;
-}
-        </style>
-    </head>
-    <body> 
-        <main role="main" class="container" id="pagecontainer" style="margin-bottom: 10rem;">
-            <div class="project-headbar clearfix" id="headerContent">
-</div>
-            <div class="row" style="padding: 1rem">
-                <div class="blog-main col-md-4" style="margin-bottom: 1rem">
-                    <div class="blog-post">
-                        <h2>Filters</h2>
-                        <hr class="bg-secondary">
-                        <div class="btn btn-cover btn-block" onclick="applyFilters()">Apply Filters</div>
-                        <form id="blogpostfilter">
-                            <div id="Templatecontainer" style="display: none;">
-                                <label class="col-form-label-lg text-capitalize">Template</label>
-                                <div class="form-check" id="Templatecheckboxtemplate" style="display: none;">
-                                    <input class="form-check-input" name="" id="templatecheck" type="checkbox">
-                                    <label class="form-check-label" for="templatecheck">Option</label>
-                                </div>                                 
-                            </div>
-                        </form>
-                        <div class="btn btn-cover btn-block" onclick="applyFilters()">Apply Filters</div>
-                    </div>
-                </div>
-                <!-- /.blog-main -->
-                <aside class="col-md-8" style="margin-bottom: 1rem">
-                    <div class="row page-btn">
-                        <div class="col d-inline-flex justify-content-start">
-                            <a class="btn card btn-main" name="previouspage" onclick="changePage(-1);">Previous Page</a>
-                        </div>
-                        <div class="col d-inline-flex justify-content-end">
-                            <a class="btn card btn-main" name="nextpage" onclick="changePage(1);">Next Page</a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="row" id="ItemTemplate" style="display: none">
-                            <div class="col">
-                                <a class="row hover-shadow blogpost-listitem"> <div class="col-4 text-white">
-                                        <h4 name="Title" data-pg-name="Title">Pizza Bot</h4>
-                                        <p name="Date" data-pg-name="Date">1/1/3021</p>
-                                    </div><div class="col text-left text-white">
-                                        <p data-pg-name="About" name="About">Paragraph</p>
-                                    </div> </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row page-btn">
-                        <div class="col d-inline-flex justify-content-start">
-                            <a class="btn card btn-main" name="previouspage" onclick="changePage(-1);">Previous Page</a>
-                        </div>
-                        <div class="col d-inline-flex justify-content-end">
-                            <a class="btn card btn-main" name="nextpage" onclick="changePage(1);">Next Page</a>
-                        </div>
-                    </div>                     
-                </aside>
-                <!-- /.blog-sidebar -->
-            </div>
-            <!-- /.row -->
-        </main>
-        <!-- /.container -->
-        <footer class="blog-footer">
-</footer>
-        <!-- Bootstrap core JavaScript
-    ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="/highlight/highlight.min.js"></script>
-        <script src="/js/jquery-3.6.0.min.js"></script>
-        <script src="/custom.js"></script>
-        <script> 
-    $(async function(){
-      $("#headerContent").load("/headbar.html"); 
-        waitForEl("#ProjectsNavItem",function(){
-            $("#ProjectsNavItem").addClass("active");
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="/headbar.css" rel="stylesheet">
+    <link href="/base.css" rel="stylesheet">
+    <link href="/projects.css" rel="stylesheet">
+    <link href="/highlight/styles/github-dark.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700" />
+    <style>
+        html,
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <main role="main" class="site-wrapper" style="padding-bottom: 10rem;">
+        <div class="masthead" id="headerContent">
+        </div>
+        <div id="react-blogpost-viewer" class="site-content">
+        </div>
+    </main>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/highlight/highlight.min.js"></script>
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="/custom.js"></script>
+    <script>
+        $(async function () {
+            $("#headerContent").load("/headbar.html");
+            waitForEl("#ProjectsNavItem", function () {
+                $("#ProjectsNavItem").addClass("active");
+            });
         });
-    });
-           hljs.highlightAll();
+        hljs.highlightAll();
     </script>
-        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
-        <script>
-  // Import the functions you need from the SDKs you need
-  //import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
-  //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-firestore.js"></script>
+    <script>
+        // Import the functions you need from the SDKs you need
+        //import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
+        //import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-  const firebaseConfig = {
-    apiKey: "AIzaSyD2vqB3PDNO7RH_EqvSpkT572xR1L5uW2c",
-    authDomain: "evan-partidas-portfolio.firebaseapp.com",
-    projectId: "evan-partidas-portfolio",
-    storageBucket: "evan-partidas-portfolio.appspot.com",
-    messagingSenderId: "659260999388",
-    appId: "1:659260999388:web:1c875928d298daa4271619",
-    measurementId: "G-E090GYCW11"
-  };
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyD2vqB3PDNO7RH_EqvSpkT572xR1L5uW2c",
+            authDomain: "evan-partidas-portfolio.firebaseapp.com",
+            projectId: "evan-partidas-portfolio",
+            storageBucket: "evan-partidas-portfolio.appspot.com",
+            messagingSenderId: "659260999388",
+            appId: "1:659260999388:web:1c875928d298daa4271619",
+            measurementId: "G-E090GYCW11"
+        };
 
-  // Initialize Firebase
-  const app = firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
   //const analytics = getAnalytics(app);
-</script>         
-<script src="js/blogpostfilter.js"></script>
-    </body>
+    </script>
+    <script type="text/javascript" src="/js/react/react.development.js"></script>
+    <script type="text/javascript" src="/js/react/react-dom.development.js"></script>
+    <script type="text/javascript" src="/js/react/babel.min.js"></script>
+    <script type="text/babel" src="projects.js"></script>
+</body>
+
 </html>

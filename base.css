@@ -1,5 +1,11 @@
 /*Basic styles that will apply to EVERY page*/
 
+:root{
+    --bg-primary: #333;
+    --bg-dark: #222;
+    --bg-light: #444;
+    --bg-secondary: #777;
+}
 
 
 /*
@@ -9,7 +15,7 @@ html,
 body {
     height: 100%;
     margin: 0;
-    background-color: #333;
+    background-color: var(--bg-primary);
     font-family: 'Nunito', sans-serif;
 }
 
@@ -55,7 +61,7 @@ body {
 }
 
 .card{
-    background-color: #222;
+    background-color: var(--bg-dark);
     border-radius: 4px;
     padding: 10px;
     margin-bottom: 5px;
@@ -63,7 +69,7 @@ body {
 
 input{
     background-color: #111;
-    border-color: #333;
+    border-color: var(--bg-primary);
     color: #eee;
 }
 
