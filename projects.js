@@ -114,7 +114,7 @@ class BlogPostSearch extends React.Component {
                                 return (
                                     <div key={blogpost.id} className="card blogpost-item">
                                         <div>
-                                            <h3><a style={{color: "white"}}href={blogpost.url}>{blogpost.title}</a></h3>
+                                            <h3><a style={{color: "white"}}href={`/project?id=${blogpost.blogUri}`}>{blogpost.title}</a></h3>
                                             <h5>{blogpost.date}</h5>
                                         </div>
                                         <div>

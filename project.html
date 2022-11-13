@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Evan Partidas: Project</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="og:title" content="Evan Partidas">
+        <meta name="og:description" content="Freelance Full Stack Developer">
+        <link href="/base.css" rel="stylesheet">
+        <link href="/headbar.css" rel="stylesheet">
+        <link href="/highlight/styles/github-dark.min.css" rel="stylesheet">
+        <link href="/project.css" rel="stylesheet">
+    </head>
+    <body> 
+        <main role="main" class="site-wrapper" id="pagecontainer" style="padding-bottom: 10rem">
+            <div class="masthead" id="headerContent">
+</div>
+            <div class="site-content">
+                <div id="react-blogpost"></div>
+            </div>
+            <!-- /.row -->
+        </main>
+        <!-- /.container -->
+        <footer class="blog-footer">
+</footer>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/highlight/highlight.min.js"></script>
+        <script src="/js/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/js/react/react.development.js"></script>
+        <script type="text/javascript" src="/js/react/react-dom.development.js"></script>
+        <script type="text/javascript" src="/js/react/babel.min.js"></script>
+        <script type="text/babel" src="project.js"></script>
+        <script src="/custom.js"></script>
+        <script> 
+    $(async function(){
+      $("#headerContent").load("/headbar.html"); 
+        waitForEl("#ProjectsNavItem",function(){
+            $("#ProjectsNavItem").addClass("active");
+        });
+    });
+           hljs.initHighlightingOnLoad();
+    </script>         
+    </body>
+</html>
