@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Evan Partidas">
+        <title>CS Tutoring: Payment</title>
+        
+        <!-- Bootstrap core CSS -->
+        <link href="/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="stripe.css">
+        <link href="payment.css" rel="stylesheet">
+        <link href="/custom.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,700" />
+    </head>
+    <body>
+        <div class="site-wrapper">
+            <div class="site-wrapper-inner">
+                <div class="cover-container">
+                    <div class="clearfix" id="headerContent">
+</div>
+                    
+                </div>
+                <div class="container verbose-content mt-5 p-5 solid-background">
+                    <div class="row">
+                        <div class="col">
+                                <h1>Scheduling</h1>
+                        </div>
+                    </div>
+                    <div id="react-scheduling-window" >
+                    
+                    </div>
+                </div>
+                <div class="mt-5">
+                    <div class="inner">
+                        
+</div>
+                </div>
+            </div>
+        </div>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/popper.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/js/jquery-3.6.0.min.js"></script>
+        <script src="/custom.js"></script>
+        <script src="https://js.stripe.com/v3/"></script>
+        <script type="text/javascript" src="/js/react/react.development.js"></script>
+        <script type="text/javascript" src="/js/react/react-dom.development.js"></script>
+        <script type="text/javascript" src="/js/react/babel.min.js"></script>	         
+        <script type="text/babel" src="payment.js"></script>
+        <script> 
+        var stripe = Stripe('pk_test_51LyKFvDfHGyjkPyy0WYMWYnE9okLRBj332HPfiFqP4VknXTPy1NLM1BzUVZV5PvsxE0eGY5ED5uy0ELc7Rt41wkf005ZX1EXva');
+        
+    $(async function(){
+      $("#headerContent").load("/headbar.html"); 
+        //console.log($("#headerContent"));
+    });
+    </script>         
+    </body>
+</html>
