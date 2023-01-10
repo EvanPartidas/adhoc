@@ -17,7 +17,7 @@ class EditableProject extends React.Component{
             this.state = {
                 open: true,
                 isAddProjectItem: true,
-                data: {title: "", about: "", date: "", filters: {}, url: ""},
+                data: {title: "", about: "", date: "", filters: {}, blogUri: ""},
                 filtersString: "{\"languages\": [], \"tags\": []}"
             }            
         }
@@ -83,7 +83,7 @@ class EditableProject extends React.Component{
 
     //Used for the creation component, simply blanks everthing
     clearToEmpty(){
-        this.setState({data: {title: "", about: "", date: "", filters: {}, url: ""},
+        this.setState({data: {title: "", about: "", date: "", filters: {}, blogUri: ""},
             filtersString: "{\"languages\": [], \"tags\": []}"});
     }
 	//Delete a blogpost
@@ -131,8 +131,8 @@ class EditableProject extends React.Component{
                             </div>
                             <div className="row m-1 p-3">
                                     <div className="col">
-                                        <label htmlFor="Url">Url:</label>
-                                        <input name="Url" placeholder="/project/foo" value={data.url} onChange={(e)=>this.updateData({url: e.target.value})}/>
+                                        <label htmlFor="blogUri">Blog Uri:</label>
+                                        <input name="blogUri" placeholder="foo" value={data.blogUri} onChange={(e)=>this.updateData({blogUri: e.target.value})}/>
                                     </div>
                                     <div className="col">
                                         <div className="row">
