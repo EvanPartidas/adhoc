@@ -58,7 +58,7 @@ class CalendarContainer extends React.Component{
                     let endTimeDate = new Date(startTimeDate);
                     endTimeDate.setTime((startTimeUnix+durationSeconds)*1000);
                     let endTimeStr = endTimeDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
-                    newDates[dayName][dayMonth].push(`${startTimeStr} - ${endTimeStr}`);
+                    newDates[dayName][dayMonth].push({time: `${startTimeStr} - ${endTimeStr}`,startTimeUnix});
                 }
 
                 this.setState({dates: newDates});
@@ -133,9 +133,11 @@ class CalendarContainer extends React.Component{
                                     </div>
                                     <div className="col">
                                     {this.state.dates[day][date].length>0?
-                                    this.state.dates[day][date].map((time,index)=>    
+                                    this.state.dates[day][date].map((timeblock,index)=>    
                                     <div className="row" /*style={{margin: 'auto'}}*/ key={index}>
-                                        <div className="col calendar-innerblock border rounded"><h5>{time}</h5></div>
+                                        <a href={"/tutoring/payment?bookableStartTime="+timeblock.startTimeUnix}>
+                                        <div className="col calendar-innerblock border rounded"><h5>{timeblock.time}</h5></div>
+                                        </a>
                                     </div>
                                     )
                                     :
