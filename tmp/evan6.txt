@@ -1,0 +1,42 @@
+42999171: Group joining left line. Processing until 42999178. leftSize: 2 rightSize: 0 Total: 0
+42999178: Group (42999171) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 14
+59961394: Group joining left line. Processing until 59961401. leftSize: 2 rightSize: 0 Total: 14
+59961401: Group (59961394) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 28
+101513930: Group joining left line. Processing until 101513933. leftSize: 3 rightSize: 0 Total: 28
+101513933: Group (101513930) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 37
+149798316: Group joining left line. Processing until 149798317. leftSize: 4 rightSize: 0 Total: 37
+149798317: Group (149798316) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 41
+184803527: Group joining left line. Processing until 184803529. leftSize: 1 rightSize: 0 Total: 41
+184803529: Group (184803527) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 43
+189641422: Group joining left line. Processing until 189641425. leftSize: 8 rightSize: 0 Total: 43
+189641425: Group (189641422) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 67
+233665124: Group joining left line. Processing until 233665132. leftSize: 6 rightSize: 0 Total: 67
+233665132: Group (233665124) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 115
+304089173: Group joining left line. Processing until 304089180. leftSize: 2 rightSize: 0 Total: 115
+304089180: Group (304089173) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 129
+336465783: Group joining left line. Processing until 336465784. leftSize: 3 rightSize: 0 Total: 129
+336465784: Group (336465783) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 132
+521595369: Group joining left line. Processing until 521595377. leftSize: 10 rightSize: 0 Total: 132
+521595377: Group (521595369) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 212
+635723059: Group joining left line. Processing until 635723069. leftSize: 8 rightSize: 0 Total: 212
+635723069: Group (635723059) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 292
+656478043: Group joining left line. Processing until 656478053. leftSize: 4 rightSize: 0 Total: 292
+656478053: Group (656478043) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 332
+714636916: Group joining left line. Processing until 714636920. leftSize: 6 rightSize: 0 Total: 332
+714636920: Group (714636916) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 356
+719885387: Group joining left line. Processing until 719885390. leftSize: 10 rightSize: 0 Total: 356
+719885390: Group (719885387) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 386
+756898538: Group joining left line. Processing until 756898547. leftSize: 5 rightSize: 0 Total: 386
+756898547: Group (756898538) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 431
+783368691: Group joining left line. Processing until 783368701. leftSize: 4 rightSize: 0 Total: 431
+783368701: Group (783368691) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 471
+804289384: Group joining left line. Processing until 804289391. leftSize: 8 rightSize: 0 Total: 471
+804289391: Group (804289384) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 527
+859484422: Group joining left line. Processing until 859484432. leftSize: 5 rightSize: 0 Total: 527
+859484432: Group (859484422) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 577
+911759957: Group joining left line. Processing until 911759961. leftSize: 3 rightSize: 0 Total: 577
+911759961: Group (911759957) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 589
+967513927: Group joining left line. Processing until 967513928. leftSize: 7 rightSize: 0 Total: 589
+967513928: Group (967513927) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 596
+========================
+Total: 596

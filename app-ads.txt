@@ -1,0 +1,6 @@
+google.com, pub-1951781929954698, DIRECT, f08c47fec0942fa0
+tappx.com, a59784e94, DIRECT, 9f375a07da0318ec
+facebook.com, 1000001, RESELLER, c3e20eee3f780d68
+facebook.com, 1000002, RESELLER, c3e20eee3f780d68
+facebook.com, 1000003, RESELLER, c3e20eee3f780d68
+facebook.com, 172097702220437, DIRECT, c3e20eee3f780d68

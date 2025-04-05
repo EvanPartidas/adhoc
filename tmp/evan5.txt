@@ -1,0 +1,42 @@
+30: Group joining left line. Processing until 930917. leftSize: 8 rightSize: 0 Total: 0
+50: Group joining right line. Processing until 747844. leftSize: 8 rightSize: 6 Total: 0
+63: Group joining right line. Waiting (next group done at 747844) leftSize 8 rightSize: 16 Total: 0
+64: Group joining left line. Waiting (next group done at 930917) leftSize: 11 rightSize 16 Total 0
+65: Group joining left line. Waiting (next group done at 930917) leftSize: 12 rightSize 16 Total 0
+66: Group joining left line. Waiting (next group done at 930917) leftSize: 16 rightSize 16 Total 0
+67: Group joining left line. Waiting (next group done at 930917) leftSize: 17 rightSize 16 Total 0
+68: Group joining right line. Waiting (next group done at 747844) leftSize 17 rightSize: 19 Total: 0
+69: Group joining left line. Waiting (next group done at 930917) leftSize: 19 rightSize 19 Total 0
+70: Group joining left line. Waiting (next group done at 930917) leftSize: 27 rightSize 19 Total 0
+71: Group joining right line. Waiting (next group done at 747844) leftSize 27 rightSize: 22 Total: 0
+72: Group joining right line. Waiting (next group done at 747844) leftSize 27 rightSize: 25 Total: 0
+73: Group joining right line. Waiting (next group done at 747844) leftSize 27 rightSize: 33 Total: 0
+74: Group joining left line. Waiting (next group done at 930917) leftSize: 37 rightSize 33 Total 0
+75: Group joining right line. Waiting (next group done at 747844) leftSize 37 rightSize: 36 Total: 0
+76: Group joining right line. Waiting (next group done at 747844) leftSize 37 rightSize: 46 Total: 0
+77: Group joining left line. Waiting (next group done at 930917) leftSize: 41 rightSize 46 Total 0
+78: Group joining left line. Waiting (next group done at 930917) leftSize: 43 rightSize 46 Total 0
+79: Group joining left line. Waiting (next group done at 930917) leftSize: 53 rightSize 46 Total 0
+80: Group joining right line. Waiting (next group done at 747844) leftSize 53 rightSize: 48 Total: 0
+747844: Group (50) Leaving Right Line. Processing group: 63. Processing until: 1508337 LeftSize: 53 RightSize 42 Total: 4486764
+930917: Group (30) Leaving Left Line. Processing group: 64. Processing until: 1572339. LeftSize: 45 RightSize 42 Total: 11933860
+1508337: Group (63) Leaving Right Line. Processing group: 68. Processing until: 1891764 LeftSize: 45 RightSize 32 Total: 27016600
+1572339: Group (64) Leaving Left Line. Processing group: 65. Processing until: 2062367. LeftSize: 42 RightSize 32 Total: 31733425
+1891764: Group (68) Leaving Right Line. Processing group: 71. Processing until: 2848194 LeftSize: 42 RightSize 29 Total: 37408513
+2062367: Group (65) Leaving Left Line. Processing group: 66. Processing until: 2582427. LeftSize: 41 RightSize 29 Total: 39470815
+2582427: Group (66) Leaving Left Line. Processing group: 67. Processing until: 3096354. LeftSize: 37 RightSize 29 Total: 49800259
+2848194: Group (71) Leaving Right Line. Processing group: 72. Processing until: 2869725 LeftSize: 37 RightSize 26 Total: 58344628
+2869725: Group (72) Leaving Right Line. Processing group: 73. Processing until: 3534849 LeftSize: 37 RightSize 23 Total: 66953587
+3096354: Group (67) Leaving Left Line. Processing group: 69. Processing until: 3552091. LeftSize: 36 RightSize 23 Total: 70049874
+3534849: Group (73) Leaving Right Line. Processing group: 75. Processing until: 4514652 LeftSize: 36 RightSize 15 Total: 98328082
+3552091: Group (69) Leaving Left Line. Processing group: 70. Processing until: 4147460. LeftSize: 34 RightSize 15 Total: 105432126
+4147460: Group (70) Leaving Left Line. Processing group: 74. Processing until: 4850596. LeftSize: 26 RightSize 15 Total: 138611246
+4514652: Group (75) Leaving Right Line. Processing group: 76. Processing until: 5237711 LeftSize: 26 RightSize 12 Total: 152154977
+4850596: Group (74) Leaving Left Line. Processing group: 77. Processing until: 5748764. LeftSize: 16 RightSize 12 Total: 200660197
+5237711: Group (76) Leaving Right Line. Processing group: 80. Processing until: 5615085 LeftSize: 16 RightSize 2 Total: 253036547
+5615085: Group (80) Leaving Right Line. LeftSize: 16 RightSize: 0 Total: 264266557
+5748764: Group (77) Leaving Left Line. Processing group: 78. Processing until: 5767221. LeftSize: 12 RightSize 0 Total: 287261305
+5767221: Group (78) Leaving Left Line. Processing group: 79. Processing until: 6245264. LeftSize: 10 RightSize 0 Total: 298795591
+6245264: Group (79) Leaving Left Line. LeftSize: 0 RightSize: 0 Total: 361247441
+========================
+Total: 361247441

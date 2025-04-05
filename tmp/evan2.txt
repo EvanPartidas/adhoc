@@ -1,0 +1,26 @@
+1: Group joining left line. Processing until 11. leftSize: 5 rightSize: 0 Total: 0
+11: Group joining right line. Processing until 21. leftSize: 5 rightSize: 1 Total: 0
+11: Group (1) Leaving Left Line. LeftSize: 0 RightSize: 1 Total: 50
+12: Group joining left line. Processing until 15. leftSize: 5 rightSize: 1 Total: 50
+13: Group joining right line. Waiting (next group done at 21) leftSize 5 rightSize: 3 Total: 50
+14: Group joining right line. Waiting (next group done at 21) leftSize 5 rightSize: 5 Total: 50
+15: Group joining left line. Waiting (next group done at 15) leftSize: 13 rightSize 5 Total 50
+15: Group (12) Leaving Left Line. Processing group: 15. Processing until: 17. LeftSize: 8 RightSize 5 Total: 65
+16: Group joining right line. Waiting (next group done at 21) leftSize 8 rightSize: 7 Total: 65
+17: Group joining right line. Waiting (next group done at 21) leftSize 8 rightSize: 8 Total: 65
+17: Group (15) Leaving Left Line. LeftSize: 0 RightSize: 8 Total: 81
+18: Group joining left line. Processing until 20. leftSize: 1 rightSize: 8 Total: 81
+19: Group joining left line. Waiting (next group done at 20) leftSize: 2 rightSize 8 Total 81
+20: Group joining left line. Waiting (next group done at 20) leftSize: 3 rightSize 8 Total 81
+20: Group (18) Leaving Left Line. Processing group: 19. Processing until: 22. LeftSize: 2 RightSize 8 Total: 83
+21: Group joining left line. Waiting (next group done at 22) leftSize: 3 rightSize 8 Total 83
+21: Group (11) Leaving Right Line. Processing group: 13. Processing until: 23 LeftSize: 3 RightSize 7 Total: 93
+22: Group (19) Leaving Left Line. Processing group: 20. Processing until: 24. LeftSize: 2 RightSize 7 Total: 96
+23: Group (13) Leaving Right Line. Processing group: 14. Processing until: 25 LeftSize: 2 RightSize 5 Total: 116
+24: Group (20) Leaving Left Line. Processing group: 21. Processing until: 26. LeftSize: 1 RightSize 5 Total: 120
+25: Group (14) Leaving Right Line. Processing group: 16. Processing until: 27 LeftSize: 1 RightSize 3 Total: 142
+26: Group (21) Leaving Left Line. LeftSize: 0 RightSize: 3 Total: 147
+27: Group (16) Leaving Right Line. Processing group: 17. Processing until: 28 LeftSize: 0 RightSize 1 Total: 169
+28: Group (17) Leaving Right Line. LeftSize: 0 RightSize: 0 Total: 180
+========================
+Total: 180
